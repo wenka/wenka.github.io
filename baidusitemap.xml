@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://wenka.github.io/2016/12/23/java_reflect/</loc>
+    <lastmod>2016-12-23T12:53:42.455Z</lastmod>
+    <data>
+        <display>
+        <title>java反射</title>
+        <pubTime>2016-12-23T11:28:41.000Z</pubTime>
+        
+        <tag>Java 反射</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://wenka.github.io/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wenka.github.io/2016/12/23/Test/</loc>
     <lastmod>2016-12-23T11:39:24.147Z</lastmod>
     <data>
@@ -22,7 +42,6 @@
     </data>
     </url>
 
-    
     
     
     
