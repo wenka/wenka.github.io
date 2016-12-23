@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenka.github.io/"/>
-  <updated>2016-12-23T11:39:24.147Z</updated>
+  <updated>2016-12-23T12:53:42.455Z</updated>
   <id>https://wenka.github.io/</id>
   
   <author>
@@ -14,30 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>My First Bolg</title>
-    <link href="https://wenka.github.io/2016/12/23/Test/"/>
-    <id>https://wenka.github.io/2016/12/23/Test/</id>
-    <published>2016-12-23T11:28:41.000Z</published>
-    <updated>2016-12-23T11:39:24.147Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="我的第一篇博客。"><a href="#我的第一篇博客。" class="headerlink" title="我的第一篇博客。"></a>我的第一篇博客。</h2><p>‘’’print “hello world”;’’’</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;我的第一篇博客。&quot;&gt;&lt;a href=&quot;#我的第一篇博客。&quot; class=&quot;headerlink&quot; title=&quot;我的第一篇博客。&quot;&gt;&lt;/a&gt;我的第一篇博客。&lt;/h2&gt;&lt;p&gt;‘’’print “hello world”;’’’&lt;/p&gt;
-
-    
-    </summary>
-    
-      <category term="TEST" scheme="https://wenka.github.io/categories/TEST/"/>
-    
-    
-      <category term="test" scheme="https://wenka.github.io/tags/test/"/>
-    
-  </entry>
   
   <entry>
     <title>java反射</title>
