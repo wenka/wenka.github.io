@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenka.github.io/"/>
-  <updated>2016-12-24T09:26:38.034Z</updated>
+  <updated>2016-12-24T15:42:45.532Z</updated>
   <id>https://wenka.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://wenka.github.io/2016/12/24/java_thread/"/>
     <id>https://wenka.github.io/2016/12/24/java_thread/</id>
     <published>2016-12-24T09:26:41.000Z</published>
-    <updated>2016-12-24T09:26:38.034Z</updated>
+    <updated>2016-12-24T15:42:45.532Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Java-线程"><a href="#Java-线程" class="headerlink" title="Java 线程"></a>Java 线程</h1><h2 id="线程概述"><a href="#线程概述" class="headerlink" title="线程概述"></a>线程概述</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;线程 是程序中的执行线程。Java 虚拟机允许应用程序并发地运行多个执行线程。每个线程都有一个优先级，高优先级线程的执行优先于低优先级线程。</p>
 <p>创建新执行线程有两种方法：</p>
@@ -275,7 +275,11 @@ class ThreadC extends Thread {
       <category term="Java" scheme="https://wenka.github.io/categories/Java/"/>
     
     
-      <category term="Java、线程、线程通信" scheme="https://wenka.github.io/tags/Java%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1/"/>
+      <category term="Java" scheme="https://wenka.github.io/tags/Java/"/>
+    
+      <category term="线程" scheme="https://wenka.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="线程通信" scheme="https://wenka.github.io/tags/%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1/"/>
     
   </entry>
   
@@ -284,7 +288,7 @@ class ThreadC extends Thread {
     <link href="https://wenka.github.io/2016/12/23/java_reflect/"/>
     <id>https://wenka.github.io/2016/12/23/java_reflect/</id>
     <published>2016-12-23T11:28:41.000Z</published>
-    <updated>2016-12-24T01:43:43.075Z</updated>
+    <updated>2016-12-24T15:43:08.799Z</updated>
     
     <content type="html"><![CDATA[<h1 id="java反射"><a href="#java反射" class="headerlink" title="java反射"></a>java反射</h1><h3 id="1、什么是反射？"><a href="#1、什么是反射？" class="headerlink" title="1、什么是反射？"></a>1、什么是反射？</h3><pre><code>JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。
 </code></pre><h3 id="2、反射用来干什么？"><a href="#2、反射用来干什么？" class="headerlink" title="2、反射用来干什么？"></a>2、反射用来干什么？</h3><pre><code>判断任意一个对象所属的类；调用其构造方法构造类的实例；获取、操作任意一个类所具
@@ -404,7 +408,9 @@ class ThreadC extends Thread {
       <category term="Java" scheme="https://wenka.github.io/categories/Java/"/>
     
     
-      <category term="Java 反射" scheme="https://wenka.github.io/tags/Java-%E5%8F%8D%E5%B0%84/"/>
+      <category term="Java" scheme="https://wenka.github.io/tags/Java/"/>
+    
+      <category term="反射" scheme="https://wenka.github.io/tags/%E5%8F%8D%E5%B0%84/"/>
     
   </entry>
   

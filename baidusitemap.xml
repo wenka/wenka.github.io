@@ -4,14 +4,40 @@
 
     
   <url>
+    <loc>https://wenka.github.io/2016/12/23/java_reflect/</loc>
+    <lastmod>2016-12-24T15:43:08.799Z</lastmod>
+    <data>
+        <display>
+        <title>java反射</title>
+        <pubTime>2016-12-23T11:28:41.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>反射</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://wenka.github.io/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wenka.github.io/2016/12/24/java_thread/</loc>
-    <lastmod>2016-12-24T09:26:38.034Z</lastmod>
+    <lastmod>2016-12-24T15:42:45.532Z</lastmod>
     <data>
         <display>
         <title>java线程</title>
         <pubTime>2016-12-24T09:26:41.000Z</pubTime>
         
-        <tag>Java、线程、线程通信</tag>
+        <tag>Java</tag>
+         
+        <tag>线程</tag>
+         
+        <tag>线程通信</tag>
          
          
            
@@ -33,26 +59,6 @@
         
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wenka.github.io/2016/12/23/java_reflect/</loc>
-    <lastmod>2016-12-24T01:43:43.075Z</lastmod>
-    <data>
-        <display>
-        <title>java反射</title>
-        <pubTime>2016-12-23T11:28:41.000Z</pubTime>
-        
-        <tag>Java 反射</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="https://wenka.github.io/categories/Java/"/>
-          
         </display>
     </data>
     </url>
