@@ -104,28 +104,16 @@
 
 
 
-<meta name="description" content="java反射1、什么是反射？JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。
-2、反射用来干什么？判断任意一个对象所属的类；调用其构造方法构造类的实例；获取、操作任意一个类所具
-有的成员变量和方法；在运行时调用任意一个对象的方法等。
-3、怎么用呢？首先我们先创建一个普通的 Demo 类。
-12345package com.wenka.reflect;publ">
+<meta name="description" content="JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java反射">
 <meta property="og:url" content="https://wenka.github.io/2016/12/23/java_reflect/index.html">
 <meta property="og:site_name" content="WenKa Blog">
-<meta property="og:description" content="java反射1、什么是反射？JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。
-2、反射用来干什么？判断任意一个对象所属的类；调用其构造方法构造类的实例；获取、操作任意一个类所具
-有的成员变量和方法；在运行时调用任意一个对象的方法等。
-3、怎么用呢？首先我们先创建一个普通的 Demo 类。
-12345package com.wenka.reflect;publ">
-<meta property="og:updated_time" content="2016-12-23T12:53:42.455Z">
+<meta property="og:description" content="JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。">
+<meta property="og:updated_time" content="2016-12-24T01:43:43.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java反射">
-<meta name="twitter:description" content="java反射1、什么是反射？JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。
-2、反射用来干什么？判断任意一个对象所属的类；调用其构造方法构造类的实例；获取、操作任意一个类所具
-有的成员变量和方法；在运行时调用任意一个对象的方法等。
-3、怎么用呢？首先我们先创建一个普通的 Demo 类。
-12345package com.wenka.reflect;publ">
+<meta name="twitter:description" content="JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。">
 
 
 
@@ -397,6 +385,10 @@
           
 
           
+              <div class="post-description">
+                  JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。
+              </div>
+          
 
         </div>
       </header>
@@ -412,7 +404,8 @@
         <h1 id="java反射"><a href="#java反射" class="headerlink" title="java反射"></a>java反射</h1><h3 id="1、什么是反射？"><a href="#1、什么是反射？" class="headerlink" title="1、什么是反射？"></a>1、什么是反射？</h3><pre><code>JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。
 </code></pre><h3 id="2、反射用来干什么？"><a href="#2、反射用来干什么？" class="headerlink" title="2、反射用来干什么？"></a>2、反射用来干什么？</h3><pre><code>判断任意一个对象所属的类；调用其构造方法构造类的实例；获取、操作任意一个类所具
 有的成员变量和方法；在运行时调用任意一个对象的方法等。
-</code></pre><h3 id="3、怎么用呢？"><a href="#3、怎么用呢？" class="headerlink" title="3、怎么用呢？"></a>3、怎么用呢？</h3><p>首先我们先创建一个普通的 Demo 类。</p>
+</code></pre><a id="more"></a>
+<h3 id="3、怎么用呢？"><a href="#3、怎么用呢？" class="headerlink" title="3、怎么用呢？"></a>3、怎么用呢？</h3><p>首先我们先创建一个普通的 Demo 类。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">package com.wenka.reflect;</div><div class="line">public class Demo &#123;</div><div class="line">	public Demo() &#123;</div><div class="line">	&#125;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>####3.1 获取 Class<br><strong>三种方式获取 Class 对象：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Class&lt;?&gt; demo1 = null;</div><div class="line">Class&lt;?&gt; demo2 = null;</div><div class="line">Class&lt;?&gt; demo3 = null;</div></pre></td></tr></table></figure>
@@ -420,7 +413,8 @@
 <li><strong>① 通过 Class 类的静态方法 forName(String className)，参数为需要获取 Class 的类的</strong>全类名<strong>。</strong></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">demo1 = Class.forName(&quot;com.wenka.reflect.Demo&quot;);</div></pre></td></tr></table></figure>
-<p>注意：这里 ClassNotFoundException  异常需要处理，由于我们只是测试用，所以在这里选择上抛。<br>-<strong>② 从此类的实例中获取</strong></p>
+<p>注意：这里 ClassNotFoundException  异常需要处理，由于我们只是测试用，所以在这里选择上抛。</p>
+<p>-<strong>② 从此类的实例中获取</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">demo2 = new Demo().getClass();</div></pre></td></tr></table></figure>
 <p>-<strong>② 从类名中获取</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">demo3 = Demo.class;</div></pre></td></tr></table></figure>
@@ -457,16 +451,24 @@
 
 意思是说：这个构造方法是 “private”的，我们不能访问。但是，不要灰心，自习看了一下 Constructor&lt;*T*&gt; 类，Field、Method 和 Constructor 对象的基类为 **AccessibleObject** 类，这个类是干什么呢？
 **它提供了将反射的对象标记为在使用时取消默认 Java 语言访问控制检查的能力。**哦，原来这个类可以取消 Java 语言的访问控制检查的能力啊。这就好办了。我们讲刚得到的私有构造方法
-</code></pre><p>调用 setAccessible(boolean flag) 方法。将此方法设置为 false，使其取消反射的对象实施 Java 语言访问检查。<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">constructor.setAccessible(true);</div></pre></td></tr></table></figure></p>
-<pre><code>到此：
+</code></pre><p>调用 setAccessible(boolean flag) 方法。将此方法设置为 false，使其取消反射的对象实施 Java 语言访问检查。</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">constructor.setAccessible(true);</div></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Object newInstance = constructor.newInstance(20);</div><div class="line">System.out.println(newInstance);</div></pre></td></tr></table></figure>
+
+
+到此：
+
+
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Object newInstance = constructor.newInstance(20);</div><div class="line">System.out.println(newInstance);</div></pre></td></tr></table></figure>
+
 
 输出：
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Person [name=zhangsan, age=20]</div></pre></td></tr></table></figure>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Person [name=zhangsan, age=20]</div></pre></td></tr></table></figure>
+
 
 如果只能通过无参的构造方法来创建实例就比较简单了：当然前提是一定要有无参构造。
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Person person = (Person) Demo.newInstance();</div><div class="line">			person.setAge(20);</div><div class="line">			person.setName(&quot;A&quot;);</div><div class="line">			System.out.println(person);</div></pre></td></tr></table></figure>
 </code></pre><ul>
 <li><p><strong>③ 获取字段</strong></p>
@@ -741,7 +743,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016.12.20 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
