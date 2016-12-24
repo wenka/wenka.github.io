@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="WenKa, Blog" />
+  <meta name="keywords" content="Java、线程、线程通信," />
 
 
 
@@ -104,16 +104,16 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="description" content="Java 线程的两个特殊例子：生产者消费者问题，线程通信顺序打印“ABC”">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://wenka.github.io/2016/12/21/hello-world/index.html">
+<meta property="og:title" content="java线程">
+<meta property="og:url" content="https://wenka.github.io/2016/12/23/java_thread/index.html">
 <meta property="og:site_name" content="WenKa Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:updated_time" content="2016-12-24T01:47:02.815Z">
+<meta property="og:description" content="Java 线程的两个特殊例子：生产者消费者问题，线程通信顺序打印“ABC”">
+<meta property="og:updated_time" content="2016-12-24T09:13:26.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="java线程">
+<meta name="twitter:description" content="Java 线程的两个特殊例子：生产者消费者问题，线程通信顺序打印“ABC”">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://wenka.github.io/2016/12/21/hello-world/"/>
+  <link rel="canonical" href="https://wenka.github.io/2016/12/23/java_thread/"/>
 
 
 
 
 
-  <title> Hello World | WenKa Blog </title>
+  <title> java线程 | WenKa Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -309,7 +309,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wenka.github.io/2016/12/21/hello-world/">
+  <link itemprop="mainEntityOfPage" href="https://wenka.github.io/2016/12/23/java_thread/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="文卡">
@@ -333,7 +333,7 @@
             
             
               
-                Hello World
+                java线程
               
             
           </h1>
@@ -348,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-21T22:41:19+08:00">
-                2016-12-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-23T19:28:41+08:00">
+                2016-12-23
               </time>
             
 
@@ -359,6 +359,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -367,8 +389,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/12/21/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/21/hello-world/" itemprop="commentCount"></span>
+                <a href="/2016/12/23/java_thread/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/23/java_thread/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -378,7 +400,7 @@
 
           
           
-             <span id="/2016/12/21/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+             <span id="/2016/12/23/java_thread/" class="leancloud_visitors" data-flag-title="java线程">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -393,6 +415,10 @@
           
 
           
+              <div class="post-description">
+                  Java 线程的两个特殊例子：生产者消费者问题，线程通信顺序打印“ABC”
+              </div>
+          
 
         </div>
       </header>
@@ -405,15 +431,248 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1 id="Java-线程"><a href="#Java-线程" class="headerlink" title="Java 线程"></a>Java 线程</h1><h2 id="线程概述"><a href="#线程概述" class="headerlink" title="线程概述"></a>线程概述</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;线程 是程序中的执行线程。Java 虚拟机允许应用程序并发地运行多个执行线程。每个线程都有一个优先级，高优先级线程的执行优先于低优先级线程。</p>
+<p>创建新执行线程有两种方法：</p>
+<ol>
+<li><p>一种方法是将类声明为 Thread 的子类。该子类应重写 Thread 类的 run 方法。接下来可以分配并启动该子类的实例。</p>
+</li>
+<li><p>创建线程的另一种方法是声明实现 Runnable 接口的类。该类然后实现 run 方法。然后可以分配该类的实例，在创建 Thread 时作为一个参数来传递并启动。</p>
+</li>
+</ol>
+<h2 id="线程的创建"><a href="#线程的创建" class="headerlink" title="线程的创建"></a>线程的创建</h2><h3 id="java-lang-Thread-类的构造方法"><a href="#java-lang-Thread-类的构造方法" class="headerlink" title="java.lang.Thread 类的构造方法"></a>java.lang.Thread 类的构造方法</h3><pre><code>Thread() //① 分配新的 Thread 对象
+Thread(Runnable target)  //② 参数为：实现 Runnable 接口的类
+Thread(Runnable target, String name)  //③ 如②，并为此线程命名。
+Thread(String name) //如① ,并为线程命名。
+</code></pre><h3 id="方法一：继承-Thread-类。"><a href="#方法一：继承-Thread-类。" class="headerlink" title="方法一：继承 Thread 类。"></a>方法一：继承 Thread 类。</h3><pre><code>class Thread1 extends Thread{
+    @Override
+    public void run() {
+        for(int i = 0; i &lt; 10; i++){
+            System.out.println(i + &quot; ---&gt;Thread&quot;);
+        }
+    }
+}
+</code></pre><p>线程启动：调用构造方法①</p>
+<pre><code>Thread1 thread1 = new Thread1();
+thread1.start();
+</code></pre><h3 id="方法二：实现-Runnable-接口。"><a href="#方法二：实现-Runnable-接口。" class="headerlink" title="方法二：实现 Runnable 接口。"></a>方法二：实现 Runnable 接口。</h3><pre><code>class Target implements Runnable{
+
+    @Override
+    public void run() {
+        for(int i = 0; i &lt; 10; i++){
+            System.out.println(i + &quot; ---&gt;target&quot;);
+        }
+    }
+
+}
+</code></pre><p>线程启动：调用构造方法②</p>
+<pre><code>Target target = new Target();
+new Thread(target).start();
+</code></pre><h3 id="线程常用方法"><a href="#线程常用方法" class="headerlink" title="线程常用方法"></a>线程常用方法</h3><pre><code>Thread.currentThread()：获取当前线程
+start()：启动线程
+getName()：获取当前线程的名字
+setName()：设置当前线程的名字
+sleep()：睡眠。定时。
+join()： 等待该线程终止。
+</code></pre><h2 id="线程之间的通信（一）：生产者消费者问题"><a href="#线程之间的通信（一）：生产者消费者问题" class="headerlink" title="线程之间的通信（一）：生产者消费者问题"></a>线程之间的通信（一）：生产者消费者问题</h2><h3 id="问题表述"><a href="#问题表述" class="headerlink" title="问题表述"></a>问题表述</h3><p><strong>仓库类 Products</strong>： 描述仓库库存大小，及储存商品。</p>
+<p><strong>线程 Producter</strong> 表示生产者：生产产品，并放入仓库中，每次生产一件商品。若商品数量达到仓库库存大小时，生产等待;若商品数量小于仓库库存时，则继续生产。</p>
+<p><strong>线程 Consumer</strong> 表示消费者： 购买商品。每次购买一件商品。若库存为 0 时，停止购买，消费等待;若仓库存在商品，则继续购买。</p>
+<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><h4 id="声明仓库类"><a href="#声明仓库类" class="headerlink" title="声明仓库类"></a>声明仓库类</h4><pre><code>class Products{
+    static int maxSize = 10;//仓库大小
+    static Queue&lt;Integer&gt; products = new LinkedList&lt;Integer&gt;(); //产品队列
+}
+</code></pre><h4 id="生产者线程"><a href="#生产者线程" class="headerlink" title="生产者线程"></a>生产者线程</h4><pre><code>//生产者
+class Producter extends Thread{
+
+    @Override
+    public void run() {
+        int i = 0;
+        while (true) {
+            synchronized (Products.class) {
+
+                while (Products.products.size() == Products.maxSize) {
+                    System.out.println(&quot;仓库已经满了&quot;);
+                    try {
+                        Products.class.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName() + &quot;生产出来的产品编号：&quot; + i);
+                Products.products.add(i);
+                i++;
+                Products.class.notifyAll();
+            }
+        }
+
+    }
+}
+</code></pre><h4 id="消费者线程"><a href="#消费者线程" class="headerlink" title="消费者线程"></a>消费者线程</h4><pre><code>//消费者
+class Consumer extends Thread{
+    @Override
+    public void run() {
+        while (true) {
+            synchronized (Products.class) {
+                while (Products.products.isEmpty()) {
+                    System.out.println(&quot;仓库为空&quot;);
+                    try {
+                        Products.class.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName() +&quot;消费的产品编号 : &quot; + Products.products.remove()); 
+                Products.class.notifyAll(); //唤醒生产者线程生产产品
+            }
+        }
+    }
+}
+</code></pre><h4 id="测试-编写-Main-方法"><a href="#测试-编写-Main-方法" class="headerlink" title="测试 编写 Main 方法"></a>测试 编写 Main 方法</h4><pre><code>public class MainTest {
+    public static void main(String[] args) {
+        Producter producter = new Producter();
+        Consumer consumer = new Consumer();
+
+        producter.setName(&quot;Products-----&gt;&quot;);
+        consumer.setName(&quot;Consumer-----&gt;&quot;);
+
+        producter.start();
+        consumer.start();
+    }
+}
+</code></pre><h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><ul>
+<li><p><strong>synchronized</strong> 关键字：<strong>同步代码块，原子操作</strong></p>
+<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;synchronized 来给对象和方法或者代码块加锁，当它为一个方法或者一个代码块加锁的时候，只能有一个线程执行这段代码。当两个并发线程访问同一个对象的这个加锁同步代码块时，一个时间内只能有一个线程得到执行。另一个线程必须等待当前线程执行完这个代码块以后，释放锁，才能执行该代码块。</p>
+</li>
+<li><p><strong>wait()</strong> 方法：<strong>线程等待</strong></p>
+<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前对象必须拥有此对象监视器。该线程发布对此监视器的所有权并等待，直到其他线程通过调用 notify 方法，或 notifyAll 方法通知在此对象的监视器上等待的线程醒来。然后该线程将等到重新获得对监视器的所有权后才能继续执行。 </p>
+<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于某一个参数的版本，实现中断和虚假唤醒是可能的，而且此方法应始终在<strong>循环</strong>中使用</p>
+</li>
+<li><p><strong>notifyAll()</strong> 方法：<strong>唤醒</strong></p>
+<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;唤醒在此对象监视器上等待的所有线程。直到当前线程放弃此对象上的锁定，才能继续执行被唤醒的线程。被唤醒的线程将以常规方式与在该对象上主动同步的其他所有线程进行竞争。</p>
+</li>
+</ul>
+<h2 id="线程之间的通信（二）：多线程顺序打印“ABC”"><a href="#线程之间的通信（二）：多线程顺序打印“ABC”" class="headerlink" title="线程之间的通信（二）：多线程顺序打印“ABC”"></a>线程之间的通信（二）：多线程顺序打印“ABC”</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><ol>
+<li><p>线程A 负责打印“A”；</p>
+</li>
+<li><p>线程B 负责打印“B”；</p>
+</li>
+<li><p>线程C 负责打印“C”。</p>
+</li>
+</ol>
+<h3 id="编码-1"><a href="#编码-1" class="headerlink" title="编码"></a>编码</h3><h4 id="公用类"><a href="#公用类" class="headerlink" title="公用类"></a>公用类</h4><pre><code>class PrintABC {
+
+    static Integer flag = 1;
+
+    static void printA() {
+        System.out.println(&quot;A&quot;);
+    }
+
+    static void printB() {
+        System.out.println(&quot;B&quot;);
+    }
+
+    static void printC() {
+        System.out.println(&quot;C&quot;);
+    }
+}
+</code></pre><h4 id="A线程"><a href="#A线程" class="headerlink" title="A线程"></a>A线程</h4><pre><code>// 打印 A
+class ThreadA extends Thread {
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 10; i++) {
+            synchronized (PrintABC.class) {
+                while (PrintABC.flag != 1) {
+                    try {
+                        PrintABC.class.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                PrintABC.printA();
+                PrintABC.flag = 2;
+                PrintABC.class.notifyAll();
+            }
+        }
+    }
+}
+</code></pre><h4 id="B线程"><a href="#B线程" class="headerlink" title="B线程"></a>B线程</h4><pre><code>// 打印 B
+class ThreadB extends Thread {
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 10; i++) {
+            synchronized (PrintABC.class) {
+                while (PrintABC.flag != 2) {
+                    try {
+                        PrintABC.class.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                PrintABC.printB();
+                PrintABC.flag = 3;
+                PrintABC.class.notifyAll();
+            }
+        }
+    }
+}
+</code></pre><h4 id="C线程"><a href="#C线程" class="headerlink" title="C线程"></a>C线程</h4><pre><code>//打印 C
+class ThreadC extends Thread {
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 10; i++) {
+            synchronized (PrintABC.class) {
+                while (PrintABC.flag != 3) {
+                    try {
+                        PrintABC.class.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                PrintABC.printC();
+                PrintABC.flag = 1;
+                PrintABC.class.notifyAll();
+            }
+        }
+    }
+}
+</code></pre><h4 id="测试-Main-方法"><a href="#测试-Main-方法" class="headerlink" title="测试 Main 方法"></a>测试 Main 方法</h4><pre><code>public class MainClass {
+    public static void main(String[] args) {
+        new ThreadA().start();
+        new ThreadB().start();
+        new ThreadC().start();
+    }
+}
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文对 Java 多线程的通信进行了简单的描述，欢迎对此文的补充。<br>代码：<a href="https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/thread" title="Java线程" target="_blank" rel="external">https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/thread</a></p>
 
       
     </div>
@@ -456,10 +715,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Java、线程、线程通信/" rel="tag"># Java、线程、线程通信</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/21/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
           </div>
 
@@ -467,8 +736,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/23/java_thread/" rel="prev" title="java线程">
-                java线程 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/23/java_reflect/" rel="prev" title="java反射">
+                java反射 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -501,8 +770,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/21/hello-world/"
-           data-title="Hello World" data-url="https://wenka.github.io/2016/12/21/hello-world/">
+      <div class="ds-thread" data-thread-key="2016/12/23/java_thread/"
+           data-title="java线程" data-url="https://wenka.github.io/2016/12/23/java_thread/">
       </div>
     
   </div>
@@ -629,7 +898,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-线程"><span class="nav-text">Java 线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程概述"><span class="nav-text">线程概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程的创建"><span class="nav-text">线程的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-Thread-类的构造方法"><span class="nav-text">java.lang.Thread 类的构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一：继承-Thread-类。"><span class="nav-text">方法一：继承 Thread 类。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二：实现-Runnable-接口。"><span class="nav-text">方法二：实现 Runnable 接口。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程常用方法"><span class="nav-text">线程常用方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程之间的通信（一）：生产者消费者问题"><span class="nav-text">线程之间的通信（一）：生产者消费者问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题表述"><span class="nav-text">问题表述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码"><span class="nav-text">编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#声明仓库类"><span class="nav-text">声明仓库类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生产者线程"><span class="nav-text">生产者线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#消费者线程"><span class="nav-text">消费者线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试-编写-Main-方法"><span class="nav-text">测试 编写 Main 方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码详解"><span class="nav-text">代码详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程之间的通信（二）：多线程顺序打印“ABC”"><span class="nav-text">线程之间的通信（二）：多线程顺序打印“ABC”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码-1"><span class="nav-text">编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#公用类"><span class="nav-text">公用类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A线程"><span class="nav-text">A线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B线程"><span class="nav-text">B线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C线程"><span class="nav-text">C线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试-Main-方法"><span class="nav-text">测试 Main 方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>
