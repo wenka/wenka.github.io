@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="WenKa, Blog" />
+  <meta name="keywords" content="java,单例," />
 
 
 
@@ -104,15 +104,16 @@
 
 
 
-<meta name="description" content="No Best，Just better！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="WenKa Blog">
-<meta property="og:url" content="https://wenka.github.io/tags/Java/index.html">
+<meta name="description" content="创建单例的三种方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="苦行僧 Java 笔记之“单例”">
+<meta property="og:url" content="https://wenka.github.io/2016/12/25/java_singleton/index.html">
 <meta property="og:site_name" content="WenKa Blog">
-<meta property="og:description" content="No Best，Just better！">
+<meta property="og:description" content="创建单例的三种方法。">
+<meta property="og:updated_time" content="2016-12-25T08:53:56.971Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WenKa Blog">
-<meta name="twitter:description" content="No Best，Just better！">
+<meta name="twitter:title" content="苦行僧 Java 笔记之“单例”">
+<meta name="twitter:description" content="创建单例的三种方法。">
 
 
 
@@ -140,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://wenka.github.io/tags/Java/"/>
+  <link rel="canonical" href="https://wenka.github.io/2016/12/25/java_singleton/"/>
 
 
 
 
 
-  <title> 标签: Java | WenKa Blog </title>
+  <title> 苦行僧 Java 笔记之“单例” | WenKa Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -176,7 +177,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -298,74 +299,295 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Java
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/24/java_thread/" itemprop="url">
-              
-                <span itemprop="name">苦行僧 Java 笔记之“线程”</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-24T17:26:41+08:00"
-              content="2016-12-24" >
-          12-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/23/java_reflect/" itemprop="url">
-              
-                <span itemprop="name">苦行僧 Java 笔记之“反射”</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-23T19:28:41+08:00"
-              content="2016-12-23" >
-          12-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://wenka.github.io/2016/12/25/java_singleton/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="文卡">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://wenka.github.io/me/images/p1.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="WenKa Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="WenKa Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                苦行僧 Java 笔记之“单例”
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-25T16:13:27+08:00">
+                2016-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/25/java_singleton/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/25/java_singleton/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/25/java_singleton/" class="leancloud_visitors" data-flag-title="苦行僧 Java 笔记之“单例”">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  创建单例的三种方法。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Java-单例"><a href="#Java-单例" class="headerlink" title="Java 单例"></a>Java 单例</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单例模式应该算是 23 种设计模式中最简单的一种模式了。所谓“单例”：就是一个类只有一个实例。因此，单例模式有以下三个要素：</p>
+<ol>
+<li>私有构造方法</li>
+<li>指向自己实例的私有静态引用</li>
+<li>一个返回自己实例的公有方法。</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单例模式根据对象实例化时机分为两种：<strong>饿汉式</strong>与<strong>懒汉式</strong>。饿汉式：类在加载时就实例化一个对象；懒汉式：使用时实例化。</p>
+<h2 id="单例的实现"><a href="#单例的实现" class="headerlink" title="单例的实现"></a>单例的实现</h2><h3 id="饿汉式单例"><a href="#饿汉式单例" class="headerlink" title="饿汉式单例"></a>饿汉式单例</h3><pre><code>package com.wenka.singleton;
+
+public class Person1 {
+
+    private final static Person1 PERSON1 = new Person1();
+
+    private Person1() {
+
+    }
+
+    public static Person1 getInstance() {
+        return PERSON1;
+    }
+}
+</code></pre><h3 id="懒汉式单例（一）"><a href="#懒汉式单例（一）" class="headerlink" title="懒汉式单例（一）"></a>懒汉式单例（一）</h3><pre><code>package com.wenka.singleton;
+
+public class Person2 {
+
+    private static Person2 person2;
+
+    private Person2() {
+
+    }
+
+    public synchronized static Person2 getInstance() {
+        if (person2 == null) {
+            person2 = new Person2();
+        }
+        return person2;
+    }
+}
+</code></pre><h4 id="简要说明"><a href="#简要说明" class="headerlink" title="简要说明"></a>简要说明</h4><p><strong>synchronized：</strong>将获取单例类实例的方法原子性、不可分割，有效避免了在多线程情况下出现创建不同对象的情况。</p>
+<h3 id="懒汉式单例（二）"><a href="#懒汉式单例（二）" class="headerlink" title="懒汉式单例（二）"></a>懒汉式单例（二）</h3><pre><code>package com.wenka.singleton;
+
+public class Person3 {
+
+    private static Person3 person;
+
+    private Person3() {
+
+    }
+
+    public static Person3 getInstance() {
+
+        if (person == null) {
+            synchronized (Person3.class) {
+                if (person == null) {
+                    person = new Person3();
+                }
+            }
+        }
+
+        return person;
+    }
+}
+</code></pre><h4 id="简要说明-1"><a href="#简要说明-1" class="headerlink" title="简要说明"></a>简要说明</h4><p>相比第一种懒汉式单例的方法，此次将 synchronized 同步代码块放入方法内容，这样只有在第一次创建到单例对象的时候，才会获取对象锁。一旦单例对象存在，将不用再如（一）一般每次获取单例对象都要进行获取锁，释放锁，大大提高了运行效率。</p>
+<h2 id="单例的优点"><a href="#单例的优点" class="headerlink" title="单例的优点"></a>单例的优点</h2><ul>
+<li>在内存中只创建了一个对象，节省了内存空间。</li>
+<li>避免了频繁的创建、销毁对象。</li>
+<li>避免对共享资源的多重占用。</li>
+<li>全局访问。</li>
+</ul>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>单例模式使用的场景：频繁的创建销毁对象，有状态的工具类对象。但是需要注意的是：不能使用反射创建单例对象，将会得到不同的对象。</p>
+<p>本文源码：<a href="https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/singleton" title="Java单例模式" target="_blank" rel="external">https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/singleton</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="https://wenka.github.io/pay/weixin.png" alt="文卡 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="https://wenka.github.io/pay/zhifubao.png" alt="文卡 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/单例/" rel="tag"># 单例</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/24/java_thread/" rel="next" title="苦行僧 Java 笔记之“线程”">
+                <i class="fa fa-chevron-left"></i> 苦行僧 Java 笔记之“线程”
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -373,6 +595,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/25/java_singleton/"
+           data-title="苦行僧 Java 笔记之“单例”" data-url="https://wenka.github.io/2016/12/25/java_singleton/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -392,8 +622,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://wenka.github.io/me/images/p1.png"
@@ -476,6 +715,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-单例"><span class="nav-text">Java 单例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例的实现"><span class="nav-text">单例的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#饿汉式单例"><span class="nav-text">饿汉式单例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒汉式单例（一）"><span class="nav-text">懒汉式单例（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简要说明"><span class="nav-text">简要说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒汉式单例（二）"><span class="nav-text">懒汉式单例（二）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简要说明-1"><span class="nav-text">简要说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例的优点"><span class="nav-text">单例的优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-text">结尾</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -581,6 +836,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

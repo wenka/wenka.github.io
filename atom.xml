@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenka.github.io/"/>
-  <updated>2016-12-24T15:42:45.532Z</updated>
+  <updated>2016-12-25T08:53:56.971Z</updated>
   <id>https://wenka.github.io/</id>
   
   <author>
@@ -16,11 +16,106 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>java线程</title>
+    <title>苦行僧 Java 笔记之“单例”</title>
+    <link href="https://wenka.github.io/2016/12/25/java_singleton/"/>
+    <id>https://wenka.github.io/2016/12/25/java_singleton/</id>
+    <published>2016-12-25T08:13:27.000Z</published>
+    <updated>2016-12-25T08:53:56.971Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Java-单例"><a href="#Java-单例" class="headerlink" title="Java 单例"></a>Java 单例</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单例模式应该算是 23 种设计模式中最简单的一种模式了。所谓“单例”：就是一个类只有一个实例。因此，单例模式有以下三个要素：</p>
+<ol>
+<li>私有构造方法</li>
+<li>指向自己实例的私有静态引用</li>
+<li>一个返回自己实例的公有方法。</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单例模式根据对象实例化时机分为两种：<strong>饿汉式</strong>与<strong>懒汉式</strong>。饿汉式：类在加载时就实例化一个对象；懒汉式：使用时实例化。</p>
+<h2 id="单例的实现"><a href="#单例的实现" class="headerlink" title="单例的实现"></a>单例的实现</h2><h3 id="饿汉式单例"><a href="#饿汉式单例" class="headerlink" title="饿汉式单例"></a>饿汉式单例</h3><pre><code>package com.wenka.singleton;
+
+public class Person1 {
+
+    private final static Person1 PERSON1 = new Person1();
+
+    private Person1() {
+
+    }
+
+    public static Person1 getInstance() {
+        return PERSON1;
+    }
+}
+</code></pre><h3 id="懒汉式单例（一）"><a href="#懒汉式单例（一）" class="headerlink" title="懒汉式单例（一）"></a>懒汉式单例（一）</h3><pre><code>package com.wenka.singleton;
+
+public class Person2 {
+
+    private static Person2 person2;
+
+    private Person2() {
+
+    }
+
+    public synchronized static Person2 getInstance() {
+        if (person2 == null) {
+            person2 = new Person2();
+        }
+        return person2;
+    }
+}
+</code></pre><h4 id="简要说明"><a href="#简要说明" class="headerlink" title="简要说明"></a>简要说明</h4><p><strong>synchronized：</strong>将获取单例类实例的方法原子性、不可分割，有效避免了在多线程情况下出现创建不同对象的情况。</p>
+<h3 id="懒汉式单例（二）"><a href="#懒汉式单例（二）" class="headerlink" title="懒汉式单例（二）"></a>懒汉式单例（二）</h3><pre><code>package com.wenka.singleton;
+
+public class Person3 {
+
+    private static Person3 person;
+
+    private Person3() {
+
+    }
+
+    public static Person3 getInstance() {
+
+        if (person == null) {
+            synchronized (Person3.class) {
+                if (person == null) {
+                    person = new Person3();
+                }
+            }
+        }
+
+        return person;
+    }
+}
+</code></pre><h4 id="简要说明-1"><a href="#简要说明-1" class="headerlink" title="简要说明"></a>简要说明</h4><p>相比第一种懒汉式单例的方法，此次将 synchronized 同步代码块放入方法内容，这样只有在第一次创建到单例对象的时候，才会获取对象锁。一旦单例对象存在，将不用再如（一）一般每次获取单例对象都要进行获取锁，释放锁，大大提高了运行效率。</p>
+<h2 id="单例的优点"><a href="#单例的优点" class="headerlink" title="单例的优点"></a>单例的优点</h2><ul>
+<li>在内存中只创建了一个对象，节省了内存空间。</li>
+<li>避免了频繁的创建、销毁对象。</li>
+<li>避免对共享资源的多重占用。</li>
+<li>全局访问。</li>
+</ul>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>单例模式使用的场景：频繁的创建销毁对象，有状态的工具类对象。但是需要注意的是：不能使用反射创建单例对象，将会得到不同的对象。</p>
+<p>本文源码：<a href="https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/singleton" title="Java单例模式" target="_blank" rel="external">https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/singleton</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      创建单例的三种方法。
+    
+    </summary>
+    
+      <category term="Java" scheme="https://wenka.github.io/categories/Java/"/>
+    
+    
+      <category term="java" scheme="https://wenka.github.io/tags/java/"/>
+    
+      <category term="单例" scheme="https://wenka.github.io/tags/%E5%8D%95%E4%BE%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>苦行僧 Java 笔记之“线程”</title>
     <link href="https://wenka.github.io/2016/12/24/java_thread/"/>
     <id>https://wenka.github.io/2016/12/24/java_thread/</id>
     <published>2016-12-24T09:26:41.000Z</published>
-    <updated>2016-12-24T15:42:45.532Z</updated>
+    <updated>2016-12-25T08:18:08.842Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Java-线程"><a href="#Java-线程" class="headerlink" title="Java 线程"></a>Java 线程</h1><h2 id="线程概述"><a href="#线程概述" class="headerlink" title="线程概述"></a>线程概述</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;线程 是程序中的执行线程。Java 虚拟机允许应用程序并发地运行多个执行线程。每个线程都有一个优先级，高优先级线程的执行优先于低优先级线程。</p>
 <p>创建新执行线程有两种方法：</p>
@@ -284,11 +379,11 @@ class ThreadC extends Thread {
   </entry>
   
   <entry>
-    <title>java反射</title>
+    <title>苦行僧 Java 笔记之“反射”</title>
     <link href="https://wenka.github.io/2016/12/23/java_reflect/"/>
     <id>https://wenka.github.io/2016/12/23/java_reflect/</id>
     <published>2016-12-23T11:28:41.000Z</published>
-    <updated>2016-12-24T15:43:08.799Z</updated>
+    <updated>2016-12-25T08:17:49.800Z</updated>
     
     <content type="html"><![CDATA[<h1 id="java反射"><a href="#java反射" class="headerlink" title="java反射"></a>java反射</h1><h3 id="1、什么是反射？"><a href="#1、什么是反射？" class="headerlink" title="1、什么是反射？"></a>1、什么是反射？</h3><pre><code>JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。
 </code></pre><h3 id="2、反射用来干什么？"><a href="#2、反射用来干什么？" class="headerlink" title="2、反射用来干什么？"></a>2、反射用来干什么？</h3><pre><code>判断任意一个对象所属的类；调用其构造方法构造类的实例；获取、操作任意一个类所具

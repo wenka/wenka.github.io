@@ -4,16 +4,16 @@
 
     
   <url>
-    <loc>https://wenka.github.io/2016/12/23/java_reflect/</loc>
-    <lastmod>2016-12-24T15:43:08.799Z</lastmod>
+    <loc>https://wenka.github.io/2016/12/25/java_singleton/</loc>
+    <lastmod>2016-12-25T08:53:56.971Z</lastmod>
     <data>
         <display>
-        <title>java反射</title>
-        <pubTime>2016-12-23T11:28:41.000Z</pubTime>
+        <title>苦行僧 Java 笔记之“单例”</title>
+        <pubTime>2016-12-25T08:13:27.000Z</pubTime>
         
-        <tag>Java</tag>
+        <tag>java</tag>
          
-        <tag>反射</tag>
+        <tag>单例</tag>
          
          
            
@@ -27,10 +27,10 @@
     
   <url>
     <loc>https://wenka.github.io/2016/12/24/java_thread/</loc>
-    <lastmod>2016-12-24T15:42:45.532Z</lastmod>
+    <lastmod>2016-12-25T08:18:08.842Z</lastmod>
     <data>
         <display>
-        <title>java线程</title>
+        <title>苦行僧 Java 笔记之“线程”</title>
         <pubTime>2016-12-24T09:26:41.000Z</pubTime>
         
         <tag>Java</tag>
@@ -38,6 +38,28 @@
         <tag>线程</tag>
          
         <tag>线程通信</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://wenka.github.io/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wenka.github.io/2016/12/23/java_reflect/</loc>
+    <lastmod>2016-12-25T08:17:49.800Z</lastmod>
+    <data>
+        <display>
+        <title>苦行僧 Java 笔记之“反射”</title>
+        <pubTime>2016-12-23T11:28:41.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>反射</tag>
          
          
            
