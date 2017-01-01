@@ -1,9 +1,5 @@
 <!--
-Au<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
+Author: 文卡
 -->
 <!DOCTYPE HTML>
 <html>
@@ -20,12 +16,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---- start-smoth-scrolling---->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
  <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){		
 				event.preventDefault();
 				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
 			});
+
+			$("#phone").popover({placement:'top'});
+			$("#email").popover({placement:'top'});
+			$("#evaluation").popover({placement:'top',html:true});
+			$("#qq").popover({placement:'top',content:"<img src='images/qq.jpg' width='70%'>",html:true});
+			$("#wechat").popover({placement:'top',content:"<img src='images/wechat.jpg' width='70%'>",html:true});
 		});
 	</script>
 <!---End-smoth-scrolling---->
@@ -36,10 +39,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-section" id="header">
 				<div class="continer">
 					<img src="images/p1.png">
-						<h1>hello..<span>!</span></h1>
-							<p>My name is <a href="#contact" class="scroll top">Wenka</a> & I like programme</p>
-							<p><strong>我叫<a href="#contact" class="scroll top">文卡</a> & 我喜欢编程</strong></p>
-							<a href="#study-section" class="scroll top"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
+					<h1>hello..<span>!</span></h1>
+					<p>My name is <a href="#contact" class="scroll top">Wenka</a> & I like programme</p>
+					<p><strong>我叫<a href="#contact" class="scroll top">文卡</a> & 我喜欢编程</strong></p>
+					<a href="#study-section" class="scroll top"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
 				</div>
 			</div>
 		<!--end header-section-->
@@ -167,29 +170,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="contact-section" id="contact">
 		<div class="container">
 			<h3>contact me</h3>
-			<div class="contact-details">
-				<form>
-					<div class="col-md-6 contact-left">
-						<input placeholder="Tel：15738826986" readonly="true" type="text" class="text" value="Tel *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tel *';}">
-						<input placeholder="Email：wkwenka@gmail.com" readonly="true" type="text" class="text" value="Email *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email *';}">
-						<input placeholder="QQ：1149412873" readonly="true" type="text" class="text" value="QQ *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'QQ *';}">
-						<input placeholder="WeChat：15738826986" readonly="true" type="text" class="text" value="WeChat *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'WeChat *';}">
-					</div>
-					<div class="col-md-6 contact-right">
-						<textarea 
-						placeholder="个人介绍：
-①	本人性格开朗，内心善良。乐观向上、兴趣广泛、拥有较强的组织能力和适应能力。
-②	忠实诚信,讲原则，说到做到，决不推卸责任;
-③	有自制力，做事情始终坚持有始有终，从不半途而废;肯学习,有问题不逃避,愿意虚心向他人学习;
-④	自信但不自负,不以自我为中心。
-⑤	愿意用100%的热情和精力投入到工作中;为人积极进取,适应力强、勤奋好学、脚踏实地，有较强的团队精神,工作积极进取,态度认真。	" 
-readonly="true" value="Self-Evaluation" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Self-Evaluation *</textarea>
-						<div align="center"><button type="button" class="btn btn-success btn-lg"><a href="#header" class="scroll top" ><span class="glyphicon glyphicon-home">&nbsp;Home</span></a></button></div>
-					</div>
-					<div class="clearfix"></div>
-				</form>
-			</div>		 
 		</div>
+		<div align="center" style="padding-top:50px;padding-bottom:50px;">
+			<div class="btn-group">
+				<button id="evaluation" class="btn btn-warning" href="" role="button" data-content="①本人性格开朗，内心善良。乐观向上、兴趣广泛、拥有较强的组织能力和适应能力。<br>
+				②	忠实诚信,讲原则，说到做到，决不推卸责任;<br>
+				③	有自制力，做事情始终坚持有始有终，从不半途而废;肯学习,有问题不逃避,愿意虚心向他人学习;<br>
+				④	自信但不自负,不以自我为中心。<br>
+				⑤	愿意用100%的热情和精力投入到工作中;为人积极进取,适应力强、勤奋好学、脚踏实地，有较强的团队精神,工作积极进取,态度认真。"><span class="glyphicon glyphicon-list-alt">&nbsp;<strong>My&nbsp;Evaluation</strong></span></button>
+				<button id="qq"class="btn btn-success" href="" role="button"><span class="glyphicon glyphicon-qrcode">&nbsp;<strong>My&nbsp;QQ</strong></span></button>
+				<button id="wechat" class="btn btn-info" href="" role="button"><span class="glyphicon glyphicon-qrcode">&nbsp;<strong>My&nbsp;WeChat</strong></span></button>
+				<button id="phone" class="btn btn-default" href="" role="button" data-content="15738826986"><span class="glyphicon glyphicon-earphone">&nbsp;<strong>My&nbsp;Phone</strong></span></button>
+				<button id="email" class="btn btn-warning" href="" role="button" data-content="wkwenka@gmail.com"><span class="glyphicon glyphicon-envelope">&nbsp;<strong>My&nbsp;Email</strong></span></button>
+				<a class="btn btn-primary" href="https://wenka.github.io" role="button"><span class="glyphicon glyphicon-user">&nbsp;<strong>My&nbsp;Blog</strong></span></a>
+			</div>
+			<a href="#header" role="button" class="btn btn-danger scroll top" ><span class="glyphicon glyphicon-home">&nbsp;<strong>Home</strong></span></a>
+		</div>
+
 	</div>
 
 
