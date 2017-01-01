@@ -4,66 +4,14 @@
 
     
   <url>
-    <loc>https://wenka.github.io/2017/01/01/Spring4-Aop/</loc>
-    <lastmod>2017-01-01T08:11:42.636Z</lastmod>
+    <loc>https://wenka.github.io/2016/12/23/java_reflect/</loc>
+    <lastmod>2017-01-01T10:46:05.778Z</lastmod>
     <data>
         <display>
-        <title>Spring4笔记之 AOP</title>
-        <pubTime>2017-01-01T05:57:29.000Z</pubTime>
+        <title>苦行僧 Java 笔记之“反射”</title>
+        <pubTime>2016-12-23T11:28:41.000Z</pubTime>
         
-        <tag>MVC</tag>
-         
-        <tag>Spring4</tag>
-         
-        <tag>AOP</tag>
-         
-        <tag>面向切面编程</tag>
-         
-         
-           
-             
-              <breadCrumb title="Spring4" url="https://wenka.github.io/categories/Spring4/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wenka.github.io/2016/12/30/backbone-helloword/</loc>
-    <lastmod>2016-12-30T08:30:58.983Z</lastmod>
-    <data>
-        <display>
-        <title>backbone-helloword 入门简单实例</title>
-        <pubTime>2016-12-30T06:48:24.000Z</pubTime>
-        
-        <tag>mvc</tag>
-         
-        <tag>bachbone</tag>
-         
-        <tag>前端</tag>
-         
-         
-           
-             
-              <breadCrumb title="backbone" url="https://wenka.github.io/categories/backbone/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://wenka.github.io/2016/12/25/java_singleton/</loc>
-    <lastmod>2016-12-25T08:53:56.971Z</lastmod>
-    <data>
-        <display>
-        <title>苦行僧 Java 笔记之“单例”</title>
-        <pubTime>2016-12-25T08:13:27.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>单例</tag>
+        <tag>反射</tag>
          
          
            
@@ -77,14 +25,12 @@
     
   <url>
     <loc>https://wenka.github.io/2016/12/24/java_thread/</loc>
-    <lastmod>2016-12-25T08:18:08.842Z</lastmod>
+    <lastmod>2017-01-01T10:46:00.950Z</lastmod>
     <data>
         <display>
         <title>苦行僧 Java 笔记之“线程”</title>
         <pubTime>2016-12-24T09:26:41.000Z</pubTime>
         
-        <tag>Java</tag>
-         
         <tag>线程</tag>
          
         <tag>线程通信</tag>
@@ -100,21 +46,65 @@
 
     
   <url>
-    <loc>https://wenka.github.io/2016/12/23/java_reflect/</loc>
-    <lastmod>2016-12-25T08:17:49.800Z</lastmod>
+    <loc>https://wenka.github.io/2016/12/25/java_singleton/</loc>
+    <lastmod>2017-01-01T10:45:49.847Z</lastmod>
     <data>
         <display>
-        <title>苦行僧 Java 笔记之“反射”</title>
-        <pubTime>2016-12-23T11:28:41.000Z</pubTime>
+        <title>苦行僧 Java 笔记之“单例”</title>
+        <pubTime>2016-12-25T08:13:27.000Z</pubTime>
         
-        <tag>Java</tag>
-         
-        <tag>反射</tag>
+        <tag>单例</tag>
          
          
            
              
               <breadCrumb title="Java" url="https://wenka.github.io/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wenka.github.io/2016/12/30/backbone-helloword/</loc>
+    <lastmod>2017-01-01T10:45:37.559Z</lastmod>
+    <data>
+        <display>
+        <title>backbone-helloword 入门简单实例</title>
+        <pubTime>2016-12-30T06:48:24.000Z</pubTime>
+        
+        <tag>MVC</tag>
+         
+        <tag>前端</tag>
+         
+         
+           
+             
+              <breadCrumb title="backbone" url="https://wenka.github.io/categories/backbone/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://wenka.github.io/2017/01/01/Spring4-Aop/</loc>
+    <lastmod>2017-01-01T10:45:22.738Z</lastmod>
+    <data>
+        <display>
+        <title>Spring4笔记之 AOP</title>
+        <pubTime>2017-01-01T05:57:29.000Z</pubTime>
+        
+        <tag>MVC</tag>
+         
+        <tag>AOP</tag>
+         
+        <tag>面向切面编程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Spring4" url="https://wenka.github.io/categories/Spring4/"/>
           
         </display>
     </data>
