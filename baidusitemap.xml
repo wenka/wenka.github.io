@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>https://wenka.github.io/2017/01/01/Spring4-Aop/</loc>
+    <lastmod>2017-01-01T08:11:42.636Z</lastmod>
+    <data>
+        <display>
+        <title>Spring4笔记之 AOP</title>
+        <pubTime>2017-01-01T05:57:29.000Z</pubTime>
+        
+        <tag>MVC</tag>
+         
+        <tag>Spring4</tag>
+         
+        <tag>AOP</tag>
+         
+        <tag>面向切面编程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Spring4" url="https://wenka.github.io/categories/Spring4/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wenka.github.io/2016/12/30/backbone-helloword/</loc>
     <lastmod>2016-12-30T08:30:58.983Z</lastmod>
     <data>

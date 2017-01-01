@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,反射," />
+  <meta name="keywords" content="MVC,Spring4,AOP,面向切面编程," />
 
 
 
@@ -104,16 +104,24 @@
 
 
 
-<meta name="description" content="JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。">
+<meta name="description" content="1 什么是面向切面编程（AOP）&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;首先说一下横切关注点，散布于应用中多处的功能被成为横切关注点，往往会直接把横切关注点嵌入到应用的业务逻辑之中。而面向切面编程（AOP）的目的就是把这些横切关注点与业务逻辑相分离。
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如图所示，切面实现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="苦行僧 Java 笔记之“反射”">
-<meta property="og:url" content="https://wenka.github.io/2016/12/23/java_reflect/index.html">
+<meta property="og:title" content="Spring4笔记之 AOP">
+<meta property="og:url" content="https://wenka.github.io/2017/01/01/Spring4-Aop/index.html">
 <meta property="og:site_name" content="WenKa Blog">
-<meta property="og:description" content="JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。">
-<meta property="og:updated_time" content="2016-12-25T08:17:49.800Z">
+<meta property="og:description" content="1 什么是面向切面编程（AOP）&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;首先说一下横切关注点，散布于应用中多处的功能被成为横切关注点，往往会直接把横切关注点嵌入到应用的业务逻辑之中。而面向切面编程（AOP）的目的就是把这些横切关注点与业务逻辑相分离。
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如图所示，切面实现">
+<meta property="og:image" content="https://wenka.github.io/pictures/2017010101.png">
+<meta property="og:updated_time" content="2017-01-01T08:11:42.636Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="苦行僧 Java 笔记之“反射”">
-<meta name="twitter:description" content="JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。">
+<meta name="twitter:title" content="Spring4笔记之 AOP">
+<meta name="twitter:description" content="1 什么是面向切面编程（AOP）&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;首先说一下横切关注点，散布于应用中多处的功能被成为横切关注点，往往会直接把横切关注点嵌入到应用的业务逻辑之中。而面向切面编程（AOP）的目的就是把这些横切关注点与业务逻辑相分离。
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如图所示，切面实现">
+<meta name="twitter:image" content="https://wenka.github.io/pictures/2017010101.png">
 
 
 
@@ -141,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="https://wenka.github.io/2016/12/23/java_reflect/"/>
+  <link rel="canonical" href="https://wenka.github.io/2017/01/01/Spring4-Aop/"/>
 
 
 
 
 
-  <title> 苦行僧 Java 笔记之“反射” | WenKa Blog </title>
+  <title> Spring4笔记之 AOP | WenKa Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -332,7 +340,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wenka.github.io/2016/12/23/java_reflect/">
+  <link itemprop="mainEntityOfPage" href="https://wenka.github.io/2017/01/01/Spring4-Aop/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="文卡">
@@ -356,7 +364,7 @@
             
             
               
-                苦行僧 Java 笔记之“反射”
+                Spring4笔记之 AOP
               
             
           </h1>
@@ -371,8 +379,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-23T19:28:41+08:00">
-                2016-12-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-01T13:57:29+08:00">
+                2017-01-01
               </time>
             
 
@@ -394,8 +402,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Spring4/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring4</span>
                   </a>
                 </span>
 
@@ -412,8 +420,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/12/23/java_reflect/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/23/java_reflect/" itemprop="commentCount"></span>
+                <a href="/2017/01/01/Spring4-Aop/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/01/Spring4-Aop/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -423,7 +431,7 @@
 
           
           
-             <span id="/2016/12/23/java_reflect/" class="leancloud_visitors" data-flag-title="苦行僧 Java 笔记之“反射”">
+             <span id="/2017/01/01/Spring4-Aop/" class="leancloud_visitors" data-flag-title="Spring4笔记之 AOP">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -438,10 +446,6 @@
           
 
           
-              <div class="post-description">
-                  JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。
-              </div>
-          
 
         </div>
       </header>
@@ -454,113 +458,253 @@
       
 
       
-        <h1 id="java反射"><a href="#java反射" class="headerlink" title="java反射"></a>java反射</h1><h3 id="1、什么是反射？"><a href="#1、什么是反射？" class="headerlink" title="1、什么是反射？"></a>1、什么是反射？</h3><pre><code>JAVA 反射机制是在运行状态中，对与一个类或者对象，都能获取并操作它所有的属性和方法。
-</code></pre><h3 id="2、反射用来干什么？"><a href="#2、反射用来干什么？" class="headerlink" title="2、反射用来干什么？"></a>2、反射用来干什么？</h3><pre><code>判断任意一个对象所属的类；调用其构造方法构造类的实例；获取、操作任意一个类所具
-有的成员变量和方法；在运行时调用任意一个对象的方法等。
-</code></pre><a id="more"></a>
-<h3 id="3、怎么用呢？"><a href="#3、怎么用呢？" class="headerlink" title="3、怎么用呢？"></a>3、怎么用呢？</h3><p>首先我们先创建一个普通的 Demo 类。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">package com.wenka.reflect;</div><div class="line">public class Demo &#123;</div><div class="line">	public Demo() &#123;</div><div class="line">	&#125;	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>####3.1 获取 Class<br><strong>三种方式获取 Class 对象：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Class&lt;?&gt; demo1 = null;</div><div class="line">Class&lt;?&gt; demo2 = null;</div><div class="line">Class&lt;?&gt; demo3 = null;</div></pre></td></tr></table></figure>
+        <h1 id="1-什么是面向切面编程（AOP）"><a href="#1-什么是面向切面编程（AOP）" class="headerlink" title="1 什么是面向切面编程（AOP）"></a>1 什么是面向切面编程（AOP）</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先说一下<strong>横切关注点</strong>，散布于应用中多处的功能被成为横切关注点，往往会直接把横切关注点嵌入到应用的业务逻辑之中。而<strong>面向切面编程（AOP）</strong>的目的就是把这些横切关注点与业务逻辑相分离。</p>
+<p><img src="https://wenka.github.io/pictures/2017010101.png" alt=""></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如图所示，切面实现了横切关注点的模块化。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在使用面向切面编程时，仍然需要在一个地方定义通用功能，但是可能通过声明的方式定义这个功能要以何种方式的何地使用，而无需修改受影响的类。横切关注点可以被模块化成特殊的类，这种类就是<strong>切面</strong>。</p>
+<h1 id="2-AOP-中的名词"><a href="#2-AOP-中的名词" class="headerlink" title="2 AOP 中的名词"></a>2 AOP 中的名词</h1><h2 id="2-1-通知"><a href="#2-1-通知" class="headerlink" title="2.1 通知"></a>2.1 通知</h2><p><strong>通知</strong>定义了切面是什么以及何时使用。</p>
+<p>Spring 切面的五种通知：</p>
 <ul>
-<li><strong>① 通过 Class 类的静态方法 forName(String className)，参数为需要获取 Class 的类的</strong>全类名<strong>。</strong></li>
+<li><strong>前置通知</strong>（Before）：在目标方法被调用之前调用该通知功能。</li>
+<li><strong>后置通知</strong>（After）：在目标完成之后调用通知。并不关心方法的输出。</li>
+<li><strong>返回通知</strong>（After-returning）：在目标方法成功执行之后调用通知。</li>
+<li><strong>异常通知</strong>（After-throwing）：在目标方法抛出异常后调用用纸。</li>
+<li><strong>环绕通知</strong>（Around）：通知包含了被通知的方法，在被通知的方法调用之前和调用之后执行自定义行为。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">demo1 = Class.forName(&quot;com.wenka.reflect.Demo&quot;);</div></pre></td></tr></table></figure>
-<p>注意：这里 ClassNotFoundException  异常需要处理，由于我们只是测试用，所以在这里选择上抛。</p>
-<p>-<strong>② 从此类的实例中获取</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">demo2 = new Demo().getClass();</div></pre></td></tr></table></figure>
-<p>-<strong>② 从类名中获取</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">demo3 = Demo.class;</div></pre></td></tr></table></figure>
-<p>-<strong>输出结果：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">demo1：class com.wenka.reflect.Demo</div><div class="line">demo2：class com.wenka.reflect.Demo</div><div class="line">demo3：class com.wenka.reflect.Demo</div></pre></td></tr></table></figure>
-<p>####3.2 获取到 Class 有什么用呢？？<br>相信对于初学者也如当初的我一样，不知道接下来能干什么？这时，我们看一下 JavaAPI：java.lang.Class&lt;<em>T</em>&gt; 这个类。没错，我们可以通过它获取各种方法、各种属性等。</p>
-<ul>
-<li><strong>① 在此之前先创建一个 Person 类方便测试</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">package com.wenka.reflect;</div><div class="line"></div><div class="line">public class Person &#123;</div><div class="line"></div><div class="line">	//两个私有属性</div><div class="line">	private String name;</div><div class="line">	private Integer age;</div><div class="line"></div><div class="line">	//两个私有属性的 getter/setter 方法</div><div class="line">	public String getName() &#123;</div><div class="line">		return name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setName(String name) &#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public Integer getAge() &#123;</div><div class="line">		return age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public void setAge(Integer age) &#123;</div><div class="line">		this.age = age;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	//重写 toString() 方法输出测试。</div><div class="line">	@Override</div><div class="line">	public String toString() &#123;</div><div class="line">		return &quot;Person [name=&quot; + name + &quot;, age=&quot; + age + &quot;]&quot;;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//写了四个构造方法：一个两参的，一个public一参的，一个private一参的，一个无参的。</div><div class="line">	public Person(String name, Integer age) &#123;</div><div class="line">		super();</div><div class="line">		this.name = name;</div><div class="line">		this.age = age;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public Person(String name) &#123;</div><div class="line">		this(name, 20);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@SuppressWarnings(&quot;unused&quot;)</div><div class="line">	private Person(Integer age) &#123;</div><div class="line">		this(&quot;zhangsan&quot;, age);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public Person() &#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//两个私有方法：有参 work(int hours)、 无参 salary()</div><div class="line">	@SuppressWarnings(&quot;unused&quot;)</div><div class="line">	private void work(int hours) &#123;</div><div class="line">		System.out.println(name + &quot;工作了&quot; + hours + &quot;个小时&quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	@SuppressWarnings(&quot;unused&quot;)</div><div class="line">	private double salary() &#123;</div><div class="line">		return 5000;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><p><strong>② 获取构造方法</strong></p>
-<ul>
-<li><p>获取 Class</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Class&lt;?&gt; demo = Class.forName(&quot;com.wenka.reflect.Person&quot;);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>- 通过 API 发现有两个获取所有构造参数的方法。
-</code></pre><p><strong>getConstructors()</strong> 和 <strong>getDeclaredConstructors()</strong><br>通过对比发现：getConstructors()：不能获取到类的私有构造方法，而 getDeclaredConstructors() 则可以获取到所有的构造方法。</p>
-<pre><code>- 获取到指定的构造方法：
-- getConstructor(Class&lt;*?*&gt;... parameterTypes) 和 getConstructor(Class&lt;*?*&gt;... parameterTypes) 
-</code></pre><p>参数列表为想要的获取的那个构造方法所对应的参数列表<br>楼主在此获取得到 public 参数列表为 String 的构造方法。通过调用 Constructor&lt;<em>T</em>&gt; 中的 newInstance(Object… initargs)  方法创建实例。此方法的参数列表就是对应的构造方法的参数列表的实参。</p>
-<pre><code>    `Person person = 
-    (Person) demo.getConstructor(String.class).newInstance(&quot;wangwu&quot;);
-    `
-- 在此就有了疑问，既然我们可以通过 getDeclaredConstructor(Class&lt;*?*&gt;... parameterTypes) 获取到 **私有**的方法，那我们是不是也能通过此种办法，使得我们可以利用私有**构造方法**来创建实例？
+<h2 id="2-2-连接点"><a href="#2-2-连接点" class="headerlink" title="2.2 连接点"></a>2.2 连接点</h2><p><strong>连接点</strong>是在应用执行过程中能够插入切面的一个点。这个点可以调用方法时，抛出异常时，甚至修改一个字段时。</p>
+<h2 id="2-3-切点"><a href="#2-3-切点" class="headerlink" title="2.3 切点"></a>2.3 切点</h2><p><strong>切点</strong>会匹配通知所有植入的一个或多个连接点。</p>
+<h2 id="2-4-切面"><a href="#2-4-切面" class="headerlink" title="2.4 切面"></a>2.4 切面</h2><p><strong>切面</strong>通知和切点的结合。</p>
+<h1 id="3-简单实例（使用注解方式）"><a href="#3-简单实例（使用注解方式）" class="headerlink" title="3 简单实例（使用注解方式）"></a>3 简单实例（使用注解方式）</h1><h2 id="3-1-创建带有简单加减乘除的接口及其实现类"><a href="#3-1-创建带有简单加减乘除的接口及其实现类" class="headerlink" title="3.1 创建带有简单加减乘除的接口及其实现类"></a>3.1 创建带有简单加减乘除的接口及其实现类</h2><pre><code>package com.spring.aop.helloworld;
 
- `Constructor&lt;?&gt; constructor = demo.getDeclaredConstructor(Integer.class);`
+public interface SimpleCalculator {
 
- 没错，我们通过此方法获取到了私有构造方法，但是我们直接通过此创建实例会有异常：
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.IllegalAccessException: Class com.wenka.reflect.MainClass can not access a member of class com.wenka.reflect.Person with modifiers &quot;private&quot;</div></pre></td></tr></table></figure>
+    double add(double num1, double num2);
 
-意思是说：这个构造方法是 “private”的，我们不能访问。但是，不要灰心，自习看了一下 Constructor&lt;*T*&gt; 类，Field、Method 和 Constructor 对象的基类为 **AccessibleObject** 类，这个类是干什么呢？
-**它提供了将反射的对象标记为在使用时取消默认 Java 语言访问控制检查的能力。**哦，原来这个类可以取消 Java 语言的访问控制检查的能力啊。这就好办了。我们讲刚得到的私有构造方法
-</code></pre><p>调用 setAccessible(boolean flag) 方法。将此方法设置为 false，使其取消反射的对象实施 Java 语言访问检查。</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">constructor.setAccessible(true);</div></pre></td></tr></table></figure>
+    double sub(double num1, double num2);
 
+    double mult(double num1, double num2);
 
+    double div(double num1, double num2);
 
-到此：
-
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Object newInstance = constructor.newInstance(20);</div><div class="line">System.out.println(newInstance);</div></pre></td></tr></table></figure>
-
-
-输出：
-
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Person [name=zhangsan, age=20]</div></pre></td></tr></table></figure>
-
-
-如果只能通过无参的构造方法来创建实例就比较简单了：当然前提是一定要有无参构造。
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Person person = (Person) Demo.newInstance();</div><div class="line">			person.setAge(20);</div><div class="line">			person.setName(&quot;A&quot;);</div><div class="line">			System.out.println(person);</div></pre></td></tr></table></figure>
+}
+</code></pre><p>目标：调用每个方法的时候获取方法名及参数列表。</p>
+<p>如果不面向切面编程，我们就需要在每个方法的前后加入同样的代码来获取参数列表等，会产生大量的冗余代码。使用切面，将这些冗余代码提取出来，单独放入一个类中，使用方法的业务与其它功能分开来，有利于代码的简洁，提高代码的重用性，方便了后期的维护。</p>
+<h2 id="3-2-编写切面类"><a href="#3-2-编写切面类" class="headerlink" title="3.2 编写切面类"></a>3.2 编写切面类</h2><pre><code>@Component
+@Aspect
+public class LogginAspectj { ...... }
 </code></pre><ul>
-<li><p><strong>③ 获取字段</strong></p>
+<li><strong>@Component</strong>：首先将该类放入 IOC 容器中。</li>
+<li><strong>@Aspect</strong>：将此类声明为一个切面类。</li>
+</ul>
+<h2 id="3-3-编写通知"><a href="#3-3-编写通知" class="headerlink" title="3.3 编写通知"></a>3.3 编写通知</h2><pre><code>@Before(&quot;execution(* com.spring.aop.helloworld.SimpleCalculator.*(..))&quot;)
+public void beforeMethod(JoinPoint joinPoint) {
+    String name = joinPoint.getSignature().getName();
+    List&lt;Object&gt; args = Arrays.asList(joinPoint.getArgs());
+    System.out.println(&quot;The &quot; + name + &quot; Method with &quot; + args + &quot; Begin!...&quot;);
+}
+
+// 后置通知
+@After(&quot;execution(* com.spring.aop.helloworld.SimpleCalculator.*(..))&quot;)
+public void afterMethod(JoinPoint joinPoint) {
+    String methodName = joinPoint.getSignature().getName();
+    System.out.println(&quot;The Method &quot; + methodName + &quot; End!...&quot;);
+}
+
+// 返回通知
+//在【方法正常结束】执行的代码
+//返回通知是可以接受返回值的
+@AfterReturning(value = &quot;execution(* com.spring.aop.helloworld.SimpleCalculator.*(..))&quot;, returning = &quot;result&quot;)
+public void afterReturning(JoinPoint joinPoint, Object result) {
+    String methodName = joinPoint.getSignature().getName();
+    System.out.println(&quot;The Method &quot; + methodName + &quot; End with &quot; + result);
+}
+
+//异常通知
+//在目标方法出现异常时会执行的代码
+//可以访问到异常对象；且可以指定特定异常时再执行异常通知代码
+@AfterThrowing(value = &quot;execution(* com.spring.aop.helloworld.SimpleCalculator.*(..))&quot;, throwing=&quot;e&quot;)
+public void afterThrowing(JoinPoint joinPoint,Exception e){
+    String methodName = joinPoint.getSignature().getName();
+    System.out.println(&quot;The Method &quot; + methodName + &quot; Exception with &quot; + e);
+}
+</code></pre><ol>
+<li>声明通知方法<ul>
+<li>@Before：前置通知</li>
+<li>@After：后置通知</li>
+<li>@Afterreturning：返回通知</li>
+<li>@AfterThrowing：异常通知</li>
+</ul>
+</li>
+<li>通知注解中的参数<ul>
+<li>value 值：切面表达式。告知此通知的切点。<ul>
+<li><strong>execution</strong>：在相关方法执行时触发。</li>
+<li><ul>
+<li>： 代表任意。第一个代表任意返回值，第二个代表com.spring.aop.helloworld.SimpleCalculator 此类下的任意方法。</li>
+</ul>
+</li>
+<li><strong>(..)</strong>：代表使用任意参数。</li>
+</ul>
+</li>
+<li>returning：@AfterReturning通知后的返回值。</li>
+<li>throwing：@AfterThrowing通知获取到的异常。</li>
+</ul>
+</li>
+<li>参数列表：    <ul>
+<li>JoinPoint：连接点。通过连接点<strong>joinPoint.getSignature().getName()</strong>可以获取激活此通知的方法名。通过<strong>joinPoint.getArgs()</strong>获取激活此通知的方法的参数列表。</li>
+<li>Object：与<strong>@AfterReturning</strong>中的属性<strong>returning</strong>名一致。获取激活此通知的方法的返回值。</li>
+<li>Exception：与<strong>@AfterThrowing</strong>中的属性<strong>throwing</strong>名一致。获取激活此通知的方法的异常信息。</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-4-通用的切点"><a href="#3-4-通用的切点" class="headerlink" title="3.4 通用的切点"></a>3.4 通用的切点</h2><p>以上代码会发现，每个通知中的切点都一样，那既然都一样的话，那会不会有一种简单的方式，使我们只用写一次切面表达式而达到重用呢？答案肯定有。</p>
+<pre><code>//切面表达式
+@Pointcut(&quot;execution(* com.spring.aop.helloworld.SimpleCalculator.*(..))&quot;)
+public void declarExpression(){}
+</code></pre><p>使用<strong>@Pointcut</strong>声明此方法为一个切点。这样的话，所有的切面表达式都只需要替换成此方法的方法名即可。这样就省去了重复写那么长那么多的切面表达式的力气。</p>
+<pre><code>@Component
+@Aspect
+public class LogginAspectj {
+
+    //切面表达式
+    @Pointcut(&quot;execution(* com.spring.aop.helloworld.SimpleCalculator.*(..))&quot;)
+    public void declarExpression(){}
+
+
+    // 声明该方法是一个前置通知：在目标方法执行之前执行
+    @Before(&quot;declarExpression()&quot;)
+    public void beforeMethod(JoinPoint joinPoint) {
+        String name = joinPoint.getSignature().getName();
+        List&lt;Object&gt; args = Arrays.asList(joinPoint.getArgs());
+        System.out.println(&quot;The &quot; + name + &quot; Method with &quot; + args + &quot; Begin!...&quot;);
+    }
+
+    // 后置通知
+    @After(&quot;declarExpression()&quot;)
+    public void afterMethod(JoinPoint joinPoint) {
+        String methodName = joinPoint.getSignature().getName();
+        System.out.println(&quot;The Method &quot; + methodName + &quot; End!...&quot;);
+    }
+
+    // 返回通知
+    //在【方法正常结束】执行的代码
+    //返回通知是可以接受返回值的
+    @AfterReturning(value = &quot;declarExpression()&quot;, returning = &quot;result&quot;)
+    public void afterReturning(JoinPoint joinPoint, Object result) {
+        String methodName = joinPoint.getSignature().getName();
+        System.out.println(&quot;The Method &quot; + methodName + &quot; End with &quot; + result);
+    }
+
+    //异常通知
+    //在目标方法出现异常时会执行的代码
+    //可以访问到异常对象；且可以指定特定异常时再执行异常通知代码
+    @AfterThrowing(value = &quot;declarExpression()&quot;, throwing=&quot;e&quot;)
+    public void afterThrowing(JoinPoint joinPoint,Exception e){
+        String methodName = joinPoint.getSignature().getName();
+        System.out.println(&quot;The Method &quot; + methodName + &quot; Exception with &quot; + e);
+    }
+}
+</code></pre><h2 id="3-5-完结了吗？"><a href="#3-5-完结了吗？" class="headerlink" title="3.5 完结了吗？"></a>3.5 完结了吗？</h2><p>至此，此类仅仅是IOC中的一个普通bean，即使使用了@Aspect注解，但是它依旧不会被视为切面，这些注解不会被解析，也不会被转换为切面的代理。我们还有在<strong>Spring配置文件</strong>中加入<strong>Spring aop命名空间</strong>中的<strong><aop:aspectj-autoproxy></aop:aspectj-autoproxy></strong>元素。</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd&quot;&gt;
+
+    &lt;context:component-scan base-package=&quot;com.spring.aop.helloworld&quot;&gt;&lt;/context:component-scan&gt;
+
+    &lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;
+
+&lt;/beans&gt;
+</code></pre><h2 id="3-6-环绕通知"><a href="#3-6-环绕通知" class="headerlink" title="3.6 环绕通知"></a>3.6 环绕通知</h2><p>环绕通知包括了以上的四种通知。因此单独拿出来。其类似于动态代理，先看代码：</p>
+<pre><code>@Around(&quot;execution(* com.spring.aop.helloworld.SimpleCalculator.*(..))&quot;)
+public Object aroundMethod(ProceedingJoinPoint pJoinPoint) {
+
+    Object result = 0.0;
+
+    String methodName = pJoinPoint.getSignature().getName();
+
+    // 执行目标方法
+    try {
+        // 前置通知
+        System.out.println(&quot;The Method &quot; + methodName + &quot; Begin with &quot; + Arrays.asList(pJoinPoint.getArgs()));
+        result = pJoinPoint.proceed();
+        // 返回通知
+        System.out.println(&quot;The Method &quot; + methodName + &quot; End with &quot; + result);
+    } catch (Throwable e) {
+        System.out.println(&quot;The Method &quot; + methodName + &quot; Exception with &quot; + e);
+    }
+    //后置通知
+    System.out.println(&quot;The Method &quot; + methodName + &quot; End&quot;);
+
+    return result;
+}
+</code></pre><p>注意一下几点：</p>
+<ol>
+<li>环绕通知类似于<strong>动态代理</strong>的全过程：ProceedingJoinPoint 参数可以决定是否执行目标方法。</li>
+<li>环绕通知必须有<strong>返回值</strong>，返回值即为目标方法的返回值。</li>
+<li>环绕通知需要携带 <strong>ProceedingJoinPoint</strong> 类型的参数。通过此参数可以获取激活此通知的方法的相关信息。</li>
+</ol>
+<h1 id="4-简单实例（使用XML配置）"><a href="#4-简单实例（使用XML配置）" class="headerlink" title="4 简单实例（使用XML配置）"></a>4 简单实例（使用XML配置）</h1><h2 id="4-1-编写测试用例：接口与类"><a href="#4-1-编写测试用例：接口与类" class="headerlink" title="4.1 编写测试用例：接口与类"></a>4.1 编写测试用例：接口与类</h2><p>在此依旧使用上面的接口类。</p>
+<p>需要改变的是切面类。去掉其中的所有注解，只是简单的JAVA类。我们将使用 XML 配置的方式一一配置。</p>
+<pre><code>public class LogginAspectj {
+
+    public void beforeMethod(JoinPoint joinPoint) {
+        String name = joinPoint.getSignature().getName();
+        List&lt;Object&gt; args = Arrays.asList(joinPoint.getArgs());
+        System.out.println(&quot;The &quot; + name + &quot; Method with &quot; + args + &quot; Begin!...&quot;);
+    }
+
+    public void afterMethod(JoinPoint joinPoint) {
+        String methodName = joinPoint.getSignature().getName();
+        System.out.println(&quot;The Method &quot; + methodName + &quot; End!...&quot;);
+    }
+
+    public void afterReturning(JoinPoint joinPoint, Object result) {
+        String methodName = joinPoint.getSignature().getName();
+        System.out.println(&quot;The Method &quot; + methodName + &quot; End with &quot; + result);
+    }
+
+    public void afterThrowing(JoinPoint joinPoint, Exception e) {
+        String methodName = joinPoint.getSignature().getName();
+        System.out.println(&quot;The Method &quot; + methodName + &quot; Exception with &quot; + e);
+    }
+}
+</code></pre><h2 id="4-2-Spring-配置文件"><a href="#4-2-Spring-配置文件" class="headerlink" title="4.2 Spring 配置文件"></a>4.2 Spring 配置文件</h2><h3 id="4-2-1-配置-bean"><a href="#4-2-1-配置-bean" class="headerlink" title="4.2.1 配置 bean"></a>4.2.1 配置 bean</h3><pre><code>&lt;!-- 配置 bean --&gt;
+&lt;bean id=&quot;simpleCalculator&quot; class=&quot;com.spring.aop.xml.SimpleCalculatorImpl&quot;&gt;&lt;/bean&gt;
+
+&lt;!-- 配置切面 bean --&gt;
+&lt;bean id=&quot;logginAspectj&quot; class=&quot;com.spring.aop.xml.LogginAspectj&quot;&gt;&lt;/bean&gt;
+</code></pre><h3 id="4-2-2-配置-AOP"><a href="#4-2-2-配置-AOP" class="headerlink" title="4.2.2 配置 AOP"></a>4.2.2 配置 AOP</h3><pre><code>&lt;aop:config&gt;
+    ......(4.2.3内容，4.2.4内容)
+&lt;/aop:config&gt;
+</code></pre><h3 id="4-2-3-配置切点表达式"><a href="#4-2-3-配置切点表达式" class="headerlink" title="4.2.3 配置切点表达式"></a>4.2.3 配置切点表达式</h3><pre><code>&lt;aop:pointcut
+    expression=&quot;execution(* com.spring.aop.xml.SimpleCalculator.*(..))&quot;
+    id=&quot;pointCut&quot; /&gt;
+</code></pre><h3 id="4-2-4-配置切面及通知"><a href="#4-2-4-配置切面及通知" class="headerlink" title="4.2.4 配置切面及通知"></a>4.2.4 配置切面及通知</h3><pre><code>&lt;!-- ref:指定哪个 bean　为切面 --&gt;
+&lt;aop:aspect ref=&quot;logginAspectj&quot;&gt;
+    &lt;!-- 前置通知 --&gt; 
+    &lt;aop:before method=&quot;beforeMethod&quot; pointcut-ref=&quot;pointCut&quot; /&gt;
+    &lt;!-- 后置通知 --&gt; 
+    &lt;aop:after method=&quot;afterMethod&quot; pointcut-ref=&quot;pointCut&quot; /&gt;
+    &lt;!-- 返回通知 --&gt; 
+    &lt;aop:after-returning method=&quot;afterReturning&quot;
+        pointcut-ref=&quot;pointCut&quot; returning=&quot;result&quot; /&gt;
+    &lt;!-- 异常通知 --&gt; 
+    &lt;aop:after-throwing method=&quot;afterThrowing&quot;
+        pointcut-ref=&quot;pointCut&quot; throwing=&quot;e&quot; /&gt;
+&lt;/aop:aspect&gt;
+</code></pre><p>属性介绍：</p>
 <ul>
-<li>获取所有字段，与获取构造方法类似。调用 <strong>getDeclaredFields()</strong> 或者 <strong>getFields() </strong></li>
-<li><p>获取指定字段并赋值。<strong>getDeclaredField(String name) </strong>参数：字段名。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Field field = demo.getDeclaredField(&quot;age&quot;);</div><div class="line">field.setAccessible(true);</div></pre></td></tr></table></figure>
-<p>  为字段设置新值：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Person person = new Person(&quot;AAAAAA&quot;);</div><div class="line">//field.set(obj, value);给 obj 对象的此属性设置 value 新值</div><div class="line">field.set(person, 100);</div><div class="line">System.out.println(person)</div></pre></td></tr></table></figure>
-</li>
+<li>method：指定此通知的方法。</li>
+<li>pointcut-ref：引用切点。</li>
+<li>returning：返回值。要与方法中的名称一致。</li>
+<li>throwing：异常。要与方法中的名称一致。</li>
 </ul>
-</li>
-<li><p><strong>④ 获取方法</strong></p>
-<ul>
-<li>获取所有方法：<strong>getMethods()</strong>和 <strong>getDeclaredMethods();</strong></li>
-<li><p>获取指定的方法：（在此依旧是获取 private 的方法，其它方法类似。）</p>
-<ul>
-<li>当初我们创建的实体类中有 两个私有方法：有参 work(int hours)、 无参 salary()</li>
-</ul>
-<p><strong>getDeclaredMethod(String name, Class&lt;<em>?</em>&gt;… parameterTypes)</strong>：参数列表为：1.方法名，2. 对应方法的参数列表的类型，0个 或者 多个。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Method work = demo.getDeclaredMethod(&quot;work&quot;, int.class);</div><div class="line">			System.out.println(work);</div><div class="line">work.setAccessible(true);</div><div class="line">Person person = new Person(&quot;AAAA&quot;);</div><div class="line">// invoke(Object obj, Object... args) </div><div class="line">work.invoke(person, 10);</div></pre></td></tr></table></figure>
-<p> 输出结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">private void com.wenka.reflect.Person.work(int)</div><div class="line">AAAA工作了10个小时</div></pre></td></tr></table></figure>
-<p>Method 类中的 <strong>invoke(Object obj, Object… args)</strong> 方法，<strong>对带有指定参数的指定对象调用由此 Method 对象表示的底层方法。</strong> 参数：1.指定对象 2.对应参数列表的实参。</p>
-<ul>
-<li><p>倘若方法有返回值，则直接返回：</p>
-<p><code>Method salary = demo.getDeclaredMethod(&quot;salary&quot;);
-   salary.setAccessible(true);
-   Object invoke = salary.invoke(person);
-   System.out.println(&quot;得到了工资：&quot; + invoke);</code></p>
-</li>
-</ul>
-<p>结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">得到了工资：5000.0</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<p>致此：反射的简单用法都已经写完了，可以发现，反射很强大的，我们甚至可以通过反射使 单例 不再单例，通过反射获取注释，接口等关于此类的所有信息，并从底层操作。未来学习的框架都运用了反射的原理来实现。</p>
+<h1 id="5-小结"><a href="#5-小结" class="headerlink" title="5 小结"></a>5 小结</h1><p><strong>面向切面编程（AOP）</strong>可以把分散在应用各处的相同的行为放入可重用的模块中，只需显式的声明此行为在何时何处使用。有效的减少了代码的冗余，使我们的类更多的关心自身的业务。</p>
+<p><em>————(以上为个人理解请多指教)<br>2017/1/1 15:58:55 </em></p>
 
       
     </div>
@@ -605,9 +749,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/MVC/" rel="tag"># MVC</a>
           
-            <a href="/tags/反射/" rel="tag"># 反射</a>
+            <a href="/tags/Spring4/" rel="tag"># Spring4</a>
+          
+            <a href="/tags/AOP/" rel="tag"># AOP</a>
+          
+            <a href="/tags/面向切面编程/" rel="tag"># 面向切面编程</a>
           
         </div>
       
@@ -616,8 +764,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/21/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/12/30/backbone-helloword/" rel="next" title="backbone-helloword 入门简单实例">
+                <i class="fa fa-chevron-left"></i> backbone-helloword 入门简单实例
               </a>
             
           </div>
@@ -625,10 +773,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/24/java_thread/" rel="prev" title="苦行僧 Java 笔记之“线程”">
-                苦行僧 Java 笔记之“线程” <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -660,8 +804,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/23/java_reflect/"
-           data-title="苦行僧 Java 笔记之“反射”" data-url="https://wenka.github.io/2016/12/23/java_reflect/">
+      <div class="ds-thread" data-thread-key="2017/01/01/Spring4-Aop/"
+           data-title="Spring4笔记之 AOP" data-url="https://wenka.github.io/2017/01/01/Spring4-Aop/">
       </div>
     
   </div>
@@ -788,7 +932,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java反射"><span class="nav-text">java反射</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、什么是反射？"><span class="nav-text">1、什么是反射？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、反射用来干什么？"><span class="nav-text">2、反射用来干什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、怎么用呢？"><span class="nav-text">3、怎么用呢？</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-什么是面向切面编程（AOP）"><span class="nav-text">1 什么是面向切面编程（AOP）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-AOP-中的名词"><span class="nav-text">2 AOP 中的名词</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-通知"><span class="nav-text">2.1 通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-连接点"><span class="nav-text">2.2 连接点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-切点"><span class="nav-text">2.3 切点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-切面"><span class="nav-text">2.4 切面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-简单实例（使用注解方式）"><span class="nav-text">3 简单实例（使用注解方式）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-创建带有简单加减乘除的接口及其实现类"><span class="nav-text">3.1 创建带有简单加减乘除的接口及其实现类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-编写切面类"><span class="nav-text">3.2 编写切面类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-编写通知"><span class="nav-text">3.3 编写通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-通用的切点"><span class="nav-text">3.4 通用的切点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-完结了吗？"><span class="nav-text">3.5 完结了吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-环绕通知"><span class="nav-text">3.6 环绕通知</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-简单实例（使用XML配置）"><span class="nav-text">4 简单实例（使用XML配置）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-编写测试用例：接口与类"><span class="nav-text">4.1 编写测试用例：接口与类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-Spring-配置文件"><span class="nav-text">4.2 Spring 配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-配置-bean"><span class="nav-text">4.2.1 配置 bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2-配置-AOP"><span class="nav-text">4.2.2 配置 AOP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-配置切点表达式"><span class="nav-text">4.2.3 配置切点表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-4-配置切面及通知"><span class="nav-text">4.2.4 配置切面及通知</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-小结"><span class="nav-text">5 小结</span></a></li></ol></div>
             
 
           </div>
