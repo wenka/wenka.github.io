@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="线程,线程通信," />
+  <meta name="keywords" content="MVC,IOC,DI," />
 
 
 
@@ -104,16 +104,16 @@
 
 
 
-<meta name="description" content="Java 线程的两个特殊例子：生产者消费者问题，线程通信顺序打印“ABC”">
+<meta name="description" content="讲述 Bean 之间的关系， Bean 的生命周期， Bean 的作用域，及使用 SPEL 装配 Bean。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="苦行僧 Java 笔记之“线程”">
-<meta property="og:url" content="https://wenka.github.io/2016/12/24/java_thread/index.html">
+<meta property="og:title" content="Spring4笔记之IOC（二）">
+<meta property="og:url" content="https://wenka.github.io/2017/01/02/Spring4-IOC2/index.html">
 <meta property="og:site_name" content="WenKa Blog">
-<meta property="og:description" content="Java 线程的两个特殊例子：生产者消费者问题，线程通信顺序打印“ABC”">
-<meta property="og:updated_time" content="2017-01-01T10:46:00.950Z">
+<meta property="og:description" content="讲述 Bean 之间的关系， Bean 的生命周期， Bean 的作用域，及使用 SPEL 装配 Bean。">
+<meta property="og:updated_time" content="2017-01-02T03:40:59.604Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="苦行僧 Java 笔记之“线程”">
-<meta name="twitter:description" content="Java 线程的两个特殊例子：生产者消费者问题，线程通信顺序打印“ABC”">
+<meta name="twitter:title" content="Spring4笔记之IOC（二）">
+<meta name="twitter:description" content="讲述 Bean 之间的关系， Bean 的生命周期， Bean 的作用域，及使用 SPEL 装配 Bean。">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://wenka.github.io/2016/12/24/java_thread/"/>
+  <link rel="canonical" href="https://wenka.github.io/2017/01/02/Spring4-IOC2/"/>
 
 
 
 
 
-  <title> 苦行僧 Java 笔记之“线程” | WenKa Blog </title>
+  <title> Spring4笔记之IOC（二） | WenKa Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -332,7 +332,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wenka.github.io/2016/12/24/java_thread/">
+  <link itemprop="mainEntityOfPage" href="https://wenka.github.io/2017/01/02/Spring4-IOC2/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="文卡">
@@ -356,7 +356,7 @@
             
             
               
-                苦行僧 Java 笔记之“线程”
+                Spring4笔记之IOC（二）
               
             
           </h1>
@@ -371,8 +371,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-24T17:26:41+08:00">
-                2016-12-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-02T10:14:48+08:00">
+                2017-01-02
               </time>
             
 
@@ -394,8 +394,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Spring4/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring4</span>
                   </a>
                 </span>
 
@@ -412,8 +412,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/12/24/java_thread/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/24/java_thread/" itemprop="commentCount"></span>
+                <a href="/2017/01/02/Spring4-IOC2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/Spring4-IOC2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -423,7 +423,7 @@
 
           
           
-             <span id="/2016/12/24/java_thread/" class="leancloud_visitors" data-flag-title="苦行僧 Java 笔记之“线程”">
+             <span id="/2017/01/02/Spring4-IOC2/" class="leancloud_visitors" data-flag-title="Spring4笔记之IOC（二）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -439,7 +439,7 @@
 
           
               <div class="post-description">
-                  Java 线程的两个特殊例子：生产者消费者问题，线程通信顺序打印“ABC”
+                  讲述 Bean 之间的关系， Bean 的生命周期， Bean 的作用域，及使用 SPEL 装配 Bean。
               </div>
           
 
@@ -454,248 +454,199 @@
       
 
       
-        <h1 id="Java-线程"><a href="#Java-线程" class="headerlink" title="Java 线程"></a>Java 线程</h1><h2 id="线程概述"><a href="#线程概述" class="headerlink" title="线程概述"></a>线程概述</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;线程 是程序中的执行线程。Java 虚拟机允许应用程序并发地运行多个执行线程。每个线程都有一个优先级，高优先级线程的执行优先于低优先级线程。</p>
-<p>创建新执行线程有两种方法：</p>
-<ol>
-<li><p>一种方法是将类声明为 Thread 的子类。该子类应重写 Thread 类的 run 方法。接下来可以分配并启动该子类的实例。</p>
+        <h1 id="1-Bean-之间的关系"><a href="#1-Bean-之间的关系" class="headerlink" title="1 Bean 之间的关系"></a>1 Bean 之间的关系</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bean 之间的关系分为<strong>继承</strong>和<strong>依赖</strong>。Spring中如果两个Bean的配置信息大同小异，可采用继承的方式，子bean从父bean中继承部分配置。Spring可建立一个bean对其他bean的依赖关系，Spring负责管理这些Bean的关系，当实例化一个Bean时，Spring保证该Bean所依赖的其他Bean已经初始化。</p>
+<h2 id="1-1-bean-之间的继承关系"><a href="#1-1-bean-之间的继承关系" class="headerlink" title="1.1 bean 之间的继承关系"></a>1.1 bean 之间的继承关系</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spring 中bean的继承和Java中的继承截然不同前者是对象和对象之间的关系，后者是类和类之间的关系。</p>
+<ul>
+<li>Spring中的子bean和父bean可以是不同的类型，但是Java中的继承，子类是一种特殊的父类。</li>
+<li>Spring中的bean的继承是实例之间的关系，而Java中的继承是类与类之间的关系。</li>
+<li>Spring中子bean不可以作为父bean使用，不具备多态性，Java中的子类实例完全可以当作父类实例使用。</li>
+</ul>
+<h3 id="1-1-1-测试代码"><a href="#1-1-1-测试代码" class="headerlink" title="1.1.1 测试代码"></a>1.1.1 测试代码</h3><p>POJO：</p>
+<pre><code>public class Address {
+    private String city;
+    private String street;
+    ......(省略对应的 getter/setter 方法)
+}
+</code></pre><p>relation-beans.xml：（Spring的配置文件）</p>
+<pre><code>&lt;bean id=&quot;address1&quot;
+    p:city=&quot;ZhengZhou^^&quot; p:street=&quot;WenHuaRode&quot; abstract=&quot;true&quot; &gt;&lt;/bean&gt;
+
+&lt;bean id=&quot;address2&quot; class=&quot;com.spring.beans.relation.Address&quot;
+  parent=&quot;address1&quot; &gt;&lt;/bean&gt;
+
+&lt;bean id=&quot;address3&quot; class=&quot;com.spring.beans.relation.Address&quot;
+  p:street=&quot;JianXueJie&quot; parent=&quot;address2&quot; &gt;&lt;/bean&gt;
+</code></pre><h3 id="1-1-2-配置简述"><a href="#1-1-2-配置简述" class="headerlink" title="1.1.2 配置简述"></a>1.1.2 配置简述</h3><ul>
+<li>abstract：指明当前 bean 为<strong>抽象bean</strong>。设置 abstract=”true” ，这样的bean不能被 IOC 容器创建实例，只用来作为继承的模板。</li>
+<li>parent：指明继承自哪个 bean。</li>
+<li>bean 之间的继承支持多重继承。</li>
+</ul>
+<h2 id="1-2-bean-之间的依赖关系"><a href="#1-2-bean-之间的依赖关系" class="headerlink" title="1.2 bean 之间的依赖关系"></a>1.2 bean 之间的依赖关系</h2><p>依赖：Spring允许用户通过depends-on属性设定Bean前置依赖的Bean ，前置依赖的Bean会在本Bean实例化之前创建好。</p>
+<h3 id="1-2-1-测试代码"><a href="#1-2-1-测试代码" class="headerlink" title="1.2.1 测试代码"></a>1.2.1 测试代码</h3><p>Person类：</p>
+<pre><code>public class Person {
+    private String name;
+    private int age;
+    private Car car;
+    private Address address;
+    ......(省略对应的 getter/setter 方法)
+}
+</code></pre><p>Car类：</p>
+<pre><code>public class Car {
+    private String type;
+    private double price;
+    ......(省略对应的 getter/setter 方法)
+}
+</code></pre><p>relation-beans.xml：（Spring的配置文件）</p>
+<pre><code>&lt;bean id=&quot;car&quot; class=&quot;com.spring.beans.relation.Car&quot; 
+    p:type=&quot;Audi&quot; p:price=&quot;300000&quot; &gt;&lt;/bean&gt;
+
+&lt;bean id=&quot;person&quot; class=&quot;com.spring.beans.relation.Person&quot; 
+    p:name=&quot;A&quot; p:age=&quot;18&quot; p:address-ref=&quot;address2&quot; p:car-ref=&quot;car&quot; depends-on=&quot;car&quot; &gt;&lt;/bean&gt;
+</code></pre><h1 id="2-bean-的生命周期"><a href="#2-bean-的生命周期" class="headerlink" title="2 bean 的生命周期"></a>2 bean 的生命周期</h1><p>Bean 的生命周期分为：初始化前，初始化后，销毁。</p>
+<h2 id="2-1-测试代码（先看代码，稍后详细说明）"><a href="#2-1-测试代码（先看代码，稍后详细说明）" class="headerlink" title="2.1 测试代码（先看代码，稍后详细说明）"></a>2.1 测试代码（先看代码，稍后详细说明）</h2><ol>
+<li><p>POJO：增加了 init 和 destory方法，分别表示初始化时，和销毁时的方法（方法名随意）</p>
+<p> public class Worker {</p>
+<pre><code>private String name;
+
+public Worker() {
+    super();
+    System.out.println(&quot;this is constructors...&quot;);
+}
+
+public String getName() {
+    System.out.println(&quot;getName.....&quot;);
+    return name;
+}
+
+public void setName(String name) {
+    System.out.println(&quot;setName...&quot;);
+    this.name = name;
+}
+
+public void init() {
+    System.out.println(&quot;init.....&quot;);
+}
+
+public void destory() {
+    System.out.println(&quot;destory...&quot;);
+}
+
+@Override
+public String toString() {
+    return &quot;Worker [name=&quot; + name + &quot;]&quot;;
+}
+</code></pre><p> }</p>
 </li>
-<li><p>创建线程的另一种方法是声明实现 Runnable 接口的类。该类然后实现 run 方法。然后可以分配该类的实例，在创建 Thread 时作为一个参数来传递并启动。</p>
+<li><p>bean 的后置处理器：实现 BeanPostProcessor 接口。</p>
+<p> public class TestBeanPostProcessor implements BeanPostProcessor {</p>
+<pre><code>@Override
+public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+
+    System.out.println(&quot;Before:&quot; + bean + &quot; --&gt; &quot; + beanName);
+
+    // 通过此方法 对 bean 进行过滤
+    if (beanName.equals(&quot;worker&quot;)) {
+        System.out.println(&quot;-------------------&quot;);
+    }
+
+    return bean;
+}
+
+@Override
+public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+
+    System.out.println(&quot;After:&quot; + bean + &quot; --&gt; &quot; + beanName);
+    return bean;
+}
+</code></pre><p> }</p>
 </li>
+<li><p>Spring 配置文件：</p>
+<pre><code>&lt;!-- 配置 bean --&gt;
+&lt;bean id=&quot;worker&quot; class=&quot;com.spring.beans.lifecycle.Worker&quot;
+    init-method=&quot;init&quot;
+    destroy-method=&quot;destory&quot;&gt;
+    &lt;property name=&quot;name&quot; value=&quot;Tom&quot; &gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- 
+配置 bean 的后置处理器：不需要配置 id ，IOC 容器会自动识别是一 BeanPostProcessor
+ --&gt;    
+&lt;bean class=&quot;com.spring.beans.lifecycle.TestBeanPostProcessor&quot; &gt;&lt;/bean&gt;
+</code></pre></li>
+<li><p>Test获取bean</p>
+<pre><code>this is constructors...
+setName...
+Before:Worker [name=Tom] --&gt; worker
+-------------------
+init.....
+After:Worker [name=Tom] --&gt; worker
+一月 02, 2017 11:05:31 上午 org.springframework.context.support.ClassPathXmlApplicationContext doClose
+信息: Closing org.springframework.context.support.ClassPathXmlApplicationContext@c4437c4: startup date [Mon Jan 02 11:05:31 GMT+08:00 2017]; root of context hierarchy
+destory...
+</code></pre></li>
 </ol>
-<h2 id="线程的创建"><a href="#线程的创建" class="headerlink" title="线程的创建"></a>线程的创建</h2><h3 id="java-lang-Thread-类的构造方法"><a href="#java-lang-Thread-类的构造方法" class="headerlink" title="java.lang.Thread 类的构造方法"></a>java.lang.Thread 类的构造方法</h3><pre><code>Thread() //① 分配新的 Thread 对象
-Thread(Runnable target)  //② 参数为：实现 Runnable 接口的类
-Thread(Runnable target, String name)  //③ 如②，并为此线程命名。
-Thread(String name) //如① ,并为线程命名。
-</code></pre><h3 id="方法一：继承-Thread-类。"><a href="#方法一：继承-Thread-类。" class="headerlink" title="方法一：继承 Thread 类。"></a>方法一：继承 Thread 类。</h3><pre><code>class Thread1 extends Thread{
-    @Override
-    public void run() {
-        for(int i = 0; i &lt; 10; i++){
-            System.out.println(i + &quot; ---&gt;Thread&quot;);
-        }
-    }
-}
-</code></pre><p>线程启动：调用构造方法①</p>
-<pre><code>Thread1 thread1 = new Thread1();
-thread1.start();
-</code></pre><h3 id="方法二：实现-Runnable-接口。"><a href="#方法二：实现-Runnable-接口。" class="headerlink" title="方法二：实现 Runnable 接口。"></a>方法二：实现 Runnable 接口。</h3><pre><code>class Target implements Runnable{
-
-    @Override
-    public void run() {
-        for(int i = 0; i &lt; 10; i++){
-            System.out.println(i + &quot; ---&gt;target&quot;);
-        }
-    }
-
-}
-</code></pre><p>线程启动：调用构造方法②</p>
-<pre><code>Target target = new Target();
-new Thread(target).start();
-</code></pre><h3 id="线程常用方法"><a href="#线程常用方法" class="headerlink" title="线程常用方法"></a>线程常用方法</h3><pre><code>Thread.currentThread()：获取当前线程
-start()：启动线程
-getName()：获取当前线程的名字
-setName()：设置当前线程的名字
-sleep()：睡眠。定时。
-join()： 等待该线程终止。
-</code></pre><h2 id="线程之间的通信（一）：生产者消费者问题"><a href="#线程之间的通信（一）：生产者消费者问题" class="headerlink" title="线程之间的通信（一）：生产者消费者问题"></a>线程之间的通信（一）：生产者消费者问题</h2><h3 id="问题表述"><a href="#问题表述" class="headerlink" title="问题表述"></a>问题表述</h3><p><strong>仓库类 Products</strong>： 描述仓库库存大小，及储存商品。</p>
-<p><strong>线程 Producter</strong> 表示生产者：生产产品，并放入仓库中，每次生产一件商品。若商品数量达到仓库库存大小时，生产等待;若商品数量小于仓库库存时，则继续生产。</p>
-<p><strong>线程 Consumer</strong> 表示消费者： 购买商品。每次购买一件商品。若库存为 0 时，停止购买，消费等待;若仓库存在商品，则继续购买。</p>
-<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><h4 id="声明仓库类"><a href="#声明仓库类" class="headerlink" title="声明仓库类"></a>声明仓库类</h4><pre><code>class Products{
-    static int maxSize = 10;//仓库大小
-    static Queue&lt;Integer&gt; products = new LinkedList&lt;Integer&gt;(); //产品队列
-}
-</code></pre><h4 id="生产者线程"><a href="#生产者线程" class="headerlink" title="生产者线程"></a>生产者线程</h4><pre><code>//生产者
-class Producter extends Thread{
-
-    @Override
-    public void run() {
-        int i = 0;
-        while (true) {
-            synchronized (Products.class) {
-
-                while (Products.products.size() == Products.maxSize) {
-                    System.out.println(&quot;仓库已经满了&quot;);
-                    try {
-                        Products.class.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(Thread.currentThread().getName() + &quot;生产出来的产品编号：&quot; + i);
-                Products.products.add(i);
-                i++;
-                Products.class.notifyAll();
-            }
-        }
-
-    }
-}
-</code></pre><h4 id="消费者线程"><a href="#消费者线程" class="headerlink" title="消费者线程"></a>消费者线程</h4><pre><code>//消费者
-class Consumer extends Thread{
-    @Override
-    public void run() {
-        while (true) {
-            synchronized (Products.class) {
-                while (Products.products.isEmpty()) {
-                    System.out.println(&quot;仓库为空&quot;);
-                    try {
-                        Products.class.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(Thread.currentThread().getName() +&quot;消费的产品编号 : &quot; + Products.products.remove()); 
-                Products.class.notifyAll(); //唤醒生产者线程生产产品
-            }
-        }
-    }
-}
-</code></pre><h4 id="测试-编写-Main-方法"><a href="#测试-编写-Main-方法" class="headerlink" title="测试 编写 Main 方法"></a>测试 编写 Main 方法</h4><pre><code>public class MainTest {
-    public static void main(String[] args) {
-        Producter producter = new Producter();
-        Consumer consumer = new Consumer();
-
-        producter.setName(&quot;Products-----&gt;&quot;);
-        consumer.setName(&quot;Consumer-----&gt;&quot;);
-
-        producter.start();
-        consumer.start();
-    }
-}
-</code></pre><h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><ul>
-<li><p><strong>synchronized</strong> 关键字：<strong>同步代码块，原子操作</strong></p>
-<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;synchronized 来给对象和方法或者代码块加锁，当它为一个方法或者一个代码块加锁的时候，只能有一个线程执行这段代码。当两个并发线程访问同一个对象的这个加锁同步代码块时，一个时间内只能有一个线程得到执行。另一个线程必须等待当前线程执行完这个代码块以后，释放锁，才能执行该代码块。</p>
+<h2 id="2-2-代码详解"><a href="#2-2-代码详解" class="headerlink" title="2.2 代码详解"></a>2.2 代码详解</h2><ul>
+<li>Worker类：增加了 init 和 destory方法，分别表示初始化时，和销毁时的方法（方法名随意）</li>
+<li>bean 的后置处理器：配置和初始化一个bean之后实现一些自定义逻辑回调方法。<ul>
+<li>postProcessBeforeInitialization(Object bean, String beanName)：bean 初始化之前被调用</li>
+<li>postProcessAfterInitialization(Object bean, String beanName)：bean 初始化之后被调用</li>
+<li>参数 &gt; bean ： bean 实例本身。</li>
+<li>参数 &gt; beanname ：IOC 容器配置的 bean 的名字。</li>
+<li>返回值：是实际上返回给用户的那个 Bean ，注意：可以在以上两个方法中修改返回的 bean ，甚至返回一个新的 bean 。</li>
+</ul>
 </li>
-<li><p><strong>wait()</strong> 方法：<strong>线程等待</strong></p>
-<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前对象必须拥有此对象监视器。该线程发布对此监视器的所有权并等待，直到其他线程通过调用 notify 方法，或 notifyAll 方法通知在此对象的监视器上等待的线程醒来。然后该线程将等到重新获得对监视器的所有权后才能继续执行。 </p>
-<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于某一个参数的版本，实现中断和虚假唤醒是可能的，而且此方法应始终在<strong>循环</strong>中使用</p>
+<li><p>Spring配置文件中：</p>
+<pre><code>&lt;bean id=&quot;worker&quot; class=&quot;com.spring.beans.lifecycle.Worker&quot;
+    init-method=&quot;init&quot;
+    destroy-method=&quot;destory&quot;&gt;
+    &lt;property name=&quot;name&quot; value=&quot;Tom&quot; &gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><ul>
+<li>init-method：指明当前 bean 的初始化方法的方法名。</li>
+<li>destroy-method：指明当前 bean 的销毁时方法的方法名。</li>
+</ul>
 </li>
-<li><p><strong>notifyAll()</strong> 方法：<strong>唤醒</strong></p>
-<p>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;唤醒在此对象监视器上等待的所有线程。直到当前线程放弃此对象上的锁定，才能继续执行被唤醒的线程。被唤醒的线程将以常规方式与在该对象上主动同步的其他所有线程进行竞争。</p>
+<li><p>Spring配置文件中：</p>
+<pre><code>&lt;bean class=&quot;com.spring.beans.lifecycle.TestBeanPostProcessor&quot; &gt;&lt;/bean&gt;
+</code></pre><ul>
+<li>配置bean的后置处理器。IOC 容器会自动识别是 BeanPostProcessor。</li>
+</ul>
 </li>
 </ul>
-<h2 id="线程之间的通信（二）：多线程顺序打印“ABC”"><a href="#线程之间的通信（二）：多线程顺序打印“ABC”" class="headerlink" title="线程之间的通信（二）：多线程顺序打印“ABC”"></a>线程之间的通信（二）：多线程顺序打印“ABC”</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><ol>
-<li><p>线程A 负责打印“A”；</p>
-</li>
-<li><p>线程B 负责打印“B”；</p>
-</li>
-<li><p>线程C 负责打印“C”。</p>
-</li>
+<h1 id="3-Bean-的作用域"><a href="#3-Bean-的作用域" class="headerlink" title="3 Bean 的作用域"></a>3 Bean 的作用域</h1><p>默认情况下，Spring应用上下文中所有 bean 都是作为<strong>单例</strong>的形式创建的。但是也有特殊情况下（Struts2中的Action）不是单例的。</p>
+<p>Spring 定义了多种作用域：</p>
+<ul>
+<li>单例（Singleton）：在整个应用中，只创建 bean 的一个实例。</li>
+<li>原型（Prototype）：每次注入或者通过 Spring 上下文获取的时候，都会创建一个新的 bean 的实例。</li>
+<li>会话（Session）：在 Web 应用中，为每个会话创建一个 bean 实例。</li>
+<li>请求（Request）：在 Web 应用中，为每个请求创建一个 bean 实例。</li>
+</ul>
+<p>用法：</p>
+<ol>
+<li>在Spring配置文件中：直接在 &lt;<em>bean</em>&gt; 标签中加入 scope 属性，并指明属性值为哪个作用域。</li>
+<li>注解中：使用 @Scope(“……”) 注解声明作用域。</li>
 </ol>
-<h3 id="编码-1"><a href="#编码-1" class="headerlink" title="编码"></a>编码</h3><h4 id="公用类"><a href="#公用类" class="headerlink" title="公用类"></a>公用类</h4><pre><code>class PrintABC {
-
-    static Integer flag = 1;
-
-    static void printA() {
-        System.out.println(&quot;A&quot;);
-    }
-
-    static void printB() {
-        System.out.println(&quot;B&quot;);
-    }
-
-    static void printC() {
-        System.out.println(&quot;C&quot;);
-    }
-}
-</code></pre><h4 id="A线程"><a href="#A线程" class="headerlink" title="A线程"></a>A线程</h4><pre><code>// 打印 A
-class ThreadA extends Thread {
-    @Override
-    public void run() {
-        for (int i = 0; i &lt; 10; i++) {
-            synchronized (PrintABC.class) {
-                while (PrintABC.flag != 1) {
-                    try {
-                        PrintABC.class.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                PrintABC.printA();
-                PrintABC.flag = 2;
-                PrintABC.class.notifyAll();
-            }
-        }
-    }
-}
-</code></pre><h4 id="B线程"><a href="#B线程" class="headerlink" title="B线程"></a>B线程</h4><pre><code>// 打印 B
-class ThreadB extends Thread {
-    @Override
-    public void run() {
-        for (int i = 0; i &lt; 10; i++) {
-            synchronized (PrintABC.class) {
-                while (PrintABC.flag != 2) {
-                    try {
-                        PrintABC.class.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                PrintABC.printB();
-                PrintABC.flag = 3;
-                PrintABC.class.notifyAll();
-            }
-        }
-    }
-}
-</code></pre><h4 id="C线程"><a href="#C线程" class="headerlink" title="C线程"></a>C线程</h4><pre><code>//打印 C
-class ThreadC extends Thread {
-    @Override
-    public void run() {
-        for (int i = 0; i &lt; 10; i++) {
-            synchronized (PrintABC.class) {
-                while (PrintABC.flag != 3) {
-                    try {
-                        PrintABC.class.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                PrintABC.printC();
-                PrintABC.flag = 1;
-                PrintABC.class.notifyAll();
-            }
-        }
-    }
-}
-</code></pre><h4 id="测试-Main-方法"><a href="#测试-Main-方法" class="headerlink" title="测试 Main 方法"></a>测试 Main 方法</h4><pre><code>public class MainClass {
-    public static void main(String[] args) {
-        new ThreadA().start();
-        new ThreadB().start();
-        new ThreadC().start();
-    }
-}
-</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文对 Java 多线程的通信进行了简单的描述，欢迎对此文的补充。<br>代码：<a href="https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/thread" title="Java线程" target="_blank" rel="external">https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/thread</a></p>
+<h1 id="4-使用-SPEL-装配-bean"><a href="#4-使用-SPEL-装配-bean" class="headerlink" title="4 使用 SPEL 装配 bean"></a>4 使用 SPEL 装配 bean</h1><p>SPEL：Spring Expression Language，Spring表达式语言。使用 #{…..} 。</p>
+<ul>
+<li>使用 bean 的 id 来引用 bean。</li>
+<li>调用外部 类/bean 的属性。</li>
+<li>对值进行算术、关系、逻辑运算。</li>
+<li>正则表达式匹配。</li>
+<li>集合操作。</li>
+</ul>
+<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><ul>
+<li><p>调用外部类的静态属性：</p>
+<pre><code>&lt;property name=&quot;cycle&quot; value=&quot;#{T(java.lang.Math).PI * 80}&quot;&gt;&lt;/property&gt;
+</code></pre></li>
+<li><p>三目运算：</p>
+<pre><code>&lt;property name=&quot;info&quot; value=&quot;#{car.price &gt; 200000 ? &apos;白领&apos; : &apos;蓝领&apos;}&quot; &gt;&lt;/property&gt;
+</code></pre></li>
+<li><p>调用外部 bean 的属性：</p>
+<pre><code>&lt;property name=&quot;city&quot; value=&quot;#{address.city}&quot; &gt;&lt;/property&gt;
+</code></pre></li>
+</ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>本文主要讲解了 Bean之间的关系，依赖与继承，使得我们能够轻易处理实例之间的关系；通过对 bean 的生命周期的操作，我们可以在 bean 初始化前后对 bean 进行操作；Spring提供了四中 bean 的生命周期，可以在开发中选择适当的处理方式；最后使用 SEPL，在bean初始化时对属性的注入起到了很大的作用。</p>
+<p><em>（本人愚钝，请多指教！2017/1/2 11:40:53 ）</em></p>
 
       
     </div>
@@ -740,9 +691,11 @@ class ThreadC extends Thread {
       
         <div class="post-tags">
           
-            <a href="/tags/线程/" rel="tag"># 线程</a>
+            <a href="/tags/MVC/" rel="tag"># MVC</a>
           
-            <a href="/tags/线程通信/" rel="tag"># 线程通信</a>
+            <a href="/tags/IOC/" rel="tag"># IOC</a>
+          
+            <a href="/tags/DI/" rel="tag"># DI</a>
           
         </div>
       
@@ -751,8 +704,8 @@ class ThreadC extends Thread {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/23/java_reflect/" rel="next" title="苦行僧 Java 笔记之“反射”">
-                <i class="fa fa-chevron-left"></i> 苦行僧 Java 笔记之“反射”
+              <a href="/2017/01/01/Spring4-IOC/" rel="next" title="Spring4笔记之IOC（一）">
+                <i class="fa fa-chevron-left"></i> Spring4笔记之IOC（一）
               </a>
             
           </div>
@@ -760,10 +713,6 @@ class ThreadC extends Thread {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/25/java_singleton/" rel="prev" title="苦行僧 Java 笔记之“单例”">
-                苦行僧 Java 笔记之“单例” <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -795,8 +744,8 @@ class ThreadC extends Thread {
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/24/java_thread/"
-           data-title="苦行僧 Java 笔记之“线程”" data-url="https://wenka.github.io/2016/12/24/java_thread/">
+      <div class="ds-thread" data-thread-key="2017/01/02/Spring4-IOC2/"
+           data-title="Spring4笔记之IOC（二）" data-url="https://wenka.github.io/2017/01/02/Spring4-IOC2/">
       </div>
     
   </div>
@@ -923,7 +872,7 @@ class ThreadC extends Thread {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-线程"><span class="nav-text">Java 线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程概述"><span class="nav-text">线程概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程的创建"><span class="nav-text">线程的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-Thread-类的构造方法"><span class="nav-text">java.lang.Thread 类的构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一：继承-Thread-类。"><span class="nav-text">方法一：继承 Thread 类。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二：实现-Runnable-接口。"><span class="nav-text">方法二：实现 Runnable 接口。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程常用方法"><span class="nav-text">线程常用方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程之间的通信（一）：生产者消费者问题"><span class="nav-text">线程之间的通信（一）：生产者消费者问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题表述"><span class="nav-text">问题表述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码"><span class="nav-text">编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#声明仓库类"><span class="nav-text">声明仓库类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生产者线程"><span class="nav-text">生产者线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#消费者线程"><span class="nav-text">消费者线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试-编写-Main-方法"><span class="nav-text">测试 编写 Main 方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码详解"><span class="nav-text">代码详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程之间的通信（二）：多线程顺序打印“ABC”"><span class="nav-text">线程之间的通信（二）：多线程顺序打印“ABC”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码-1"><span class="nav-text">编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#公用类"><span class="nav-text">公用类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A线程"><span class="nav-text">A线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B线程"><span class="nav-text">B线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C线程"><span class="nav-text">C线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试-Main-方法"><span class="nav-text">测试 Main 方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Bean-之间的关系"><span class="nav-text">1 Bean 之间的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-bean-之间的继承关系"><span class="nav-text">1.1 bean 之间的继承关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-测试代码"><span class="nav-text">1.1.1 测试代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-配置简述"><span class="nav-text">1.1.2 配置简述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-bean-之间的依赖关系"><span class="nav-text">1.2 bean 之间的依赖关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-测试代码"><span class="nav-text">1.2.1 测试代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-bean-的生命周期"><span class="nav-text">2 bean 的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-测试代码（先看代码，稍后详细说明）"><span class="nav-text">2.1 测试代码（先看代码，稍后详细说明）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-代码详解"><span class="nav-text">2.2 代码详解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Bean-的作用域"><span class="nav-text">3 Bean 的作用域</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-使用-SPEL-装配-bean"><span class="nav-text">4 使用 SPEL 装配 bean</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#例子："><span class="nav-text">例子：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>

@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>https://wenka.github.io/2017/01/02/Spring4-IOC2/</loc>
+    <lastmod>2017-01-02T03:40:59.604Z</lastmod>
+    <data>
+        <display>
+        <title>Spring4笔记之IOC（二）</title>
+        <pubTime>2017-01-02T02:14:48.000Z</pubTime>
+        
+        <tag>MVC</tag>
+         
+        <tag>IOC</tag>
+         
+        <tag>DI</tag>
+         
+         
+           
+             
+              <breadCrumb title="Spring4" url="https://wenka.github.io/categories/Spring4/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wenka.github.io/2017/01/01/Spring4-IOC/</loc>
     <lastmod>2017-01-01T12:55:13.129Z</lastmod>
     <data>
