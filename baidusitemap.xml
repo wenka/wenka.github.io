@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://wenka.github.io/2017/01/09/java_factory/</loc>
+    <lastmod>2017-01-09T11:33:02.358Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式之工厂模式</title>
+        <pubTime>2017-01-09T11:10:49.000Z</pubTime>
+        
+        <tag>工厂模式</tag>
+         
+        <tag>设计模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://wenka.github.io/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wenka.github.io/2017/01/02/Spring4-IOC2/</loc>
     <lastmod>2017-01-02T03:40:59.604Z</lastmod>
     <data>

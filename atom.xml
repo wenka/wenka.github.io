@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenka.github.io/"/>
-  <updated>2017-01-02T03:40:59.604Z</updated>
+  <updated>2017-01-09T11:33:02.358Z</updated>
   <id>https://wenka.github.io/</id>
   
   <author>
@@ -14,6 +14,137 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>设计模式之工厂模式</title>
+    <link href="https://wenka.github.io/2017/01/09/java_factory/"/>
+    <id>https://wenka.github.io/2017/01/09/java_factory/</id>
+    <published>2017-01-09T11:10:49.000Z</published>
+    <updated>2017-01-09T11:33:02.358Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="创建型模式之“工厂模式”"><a href="#创建型模式之“工厂模式”" class="headerlink" title="创建型模式之“工厂模式”"></a>创建型模式之“工厂模式”</h1><h2 id="1-工厂模式简述"><a href="#1-工厂模式简述" class="headerlink" title="1. 工厂模式简述"></a>1. 工厂模式简述</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定义一个用于创建对象的接口，让子类决定实例化哪一个类，工厂方法使一个类的实例化延迟到其子类。</p>
+<p><img src="https://wenka.github.io/pictures/2017010901.png" alt=""><br><a id="more"></a></p>
+<h2 id="2-实例代码"><a href="#2-实例代码" class="headerlink" title="2. 实例代码"></a>2. 实例代码</h2><h3 id="2-1-产品相关代码"><a href="#2-1-产品相关代码" class="headerlink" title="2.1 产品相关代码"></a>2.1 产品相关代码</h3><pre><code>//产品接口
+public interface IProduct {
+    void productMethod();
+}
+
+//产品实现
+public class Product implements IProduct {
+    @Override
+    public void productMethod() {
+        System.out.println(&quot;This is Product Method...&quot;);
+    }
+}
+</code></pre><h3 id="2-2-工厂相关代码"><a href="#2-2-工厂相关代码" class="headerlink" title="2.2 工厂相关代码"></a>2.2 工厂相关代码</h3><pre><code>//工厂接口
+public interface IProduct {
+    void productMethod();
+}
+
+//工厂实现
+public class Product implements IProduct {
+    @Override
+    public void productMethod() {
+        System.out.println(&quot;This is Product Method...&quot;);
+    }
+}
+</code></pre><h2 id="3-工厂模式的优点"><a href="#3-工厂模式的优点" class="headerlink" title="3. 工厂模式的优点"></a>3. 工厂模式的优点</h2><ul>
+<li>可以使代码结果清晰，有效地封装变化。</li>
+<li>降低耦合度。</li>
+</ul>
+<h3 id="3-1-工厂模式有四个要素："><a href="#3-1-工厂模式有四个要素：" class="headerlink" title="3.1 工厂模式有四个要素："></a>3.1 工厂模式有四个要素：</h3><ol>
+<li><strong>产品接口</strong>：定义产品的规范。</li>
+<li><strong>产品实现</strong>：实现产品接口中具体类，决定产品在客户端的具体行为。</li>
+<li><strong>工厂接口</strong>：工厂方法的核心。规范工厂“产出”的产品。</li>
+<li><strong>工厂实现</strong>：决定如何实例化产品。</li>
+</ol>
+<h3 id="3-2-工厂模式的适用场景："><a href="#3-2-工厂模式的适用场景：" class="headerlink" title="3.2 工厂模式的适用场景："></a>3.2 工厂模式的适用场景：</h3><p>工厂模式是解耦模式，如果需要增加类之间的依赖关系时，可以考虑适用工厂模式。或者当系统需要良好的扩展性的时候，也可以考虑工厂模式。</p>
+<h2 id="4-实例2"><a href="#4-实例2" class="headerlink" title="4. 实例2"></a>4. 实例2</h2><p>创建一个电脑类(Computer)：由显示器(LCD) 和 主机(Host)构成。</p>
+<p>代码如下</p>
+<pre><code>//主机实现代码
+public class Host implements IHost {
+    @Override
+    public void show() {
+        System.out.println(&quot;This is Computer&apos;s Host...&quot;);
+    }
+}
+
+//显示器实现代码
+public class LCD implements ILCD {
+    @Override
+    public void show() {
+        System.out.println(&quot;This is Computer&apos;s LCD...&quot;);
+    }
+}
+
+//电脑实现代码
+public class Computer implements IComputer{
+
+    private IHost host;
+    private ILCD lcd;
+
+    public Computer(IHost host, ILCD lcd){
+        this.host = host;
+        this.lcd = lcd;
+    }
+
+    @Override
+    public void show(){
+        host.show();
+        lcd.show();
+    }
+
+}
+</code></pre><p>若不使用工厂模式：</p>
+<pre><code>public class TestMain {
+    public static void main(String[] args) {
+        IHost host = new Host();
+        ILCD lcd = new LCD();
+        Computer computer = new Computer(host, lcd);
+        computer.show();
+    }
+}
+</code></pre><p>我们需要一个个创建实例，然后再组合成一个电脑。</p>
+<p>使用工厂模式后：</p>
+<pre><code>public class Factory implements IFactory {
+    @Override
+    public IComputer getComputer() {
+        IHost host = new Host();
+        ILCD lcd = new LCD();
+        IComputer computer = new Computer(host, lcd);
+        return computer;
+    }
+}
+
+public class TestMain {
+    public static void main(String[] args) {
+        IFactory factory = new Factory();
+        IComputer computer = factory.getComputer();
+        computer.show();
+    }
+}
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;很明显，我们不用关心电脑是怎么创建的，只在用到电脑的时候通过工厂创建出一个电脑。这样大大减少了耦合度，对于扩展性，如果我们电脑需要其他组件，再在工厂中增加相应的东西的就行了，对于客户端代码无需改动。此代码相比于之前的代码，灵活性和稳定性都得到了极大的提高。</p>
+<p>本文源码：</p>
+<p><a href="https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/factory" target="_blank" rel="external">https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/factory</a></p>
+<p><a href="https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/factory2" target="_blank" rel="external">https://github.com/wenka/JavaHighDevelopment/tree/master/src/com/wenka/factory2</a></p>
+<p><em>（本人愚钝，请多指教！2017/1/2 11:40:53 ）</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;创建型模式之“工厂模式”&quot;&gt;&lt;a href=&quot;#创建型模式之“工厂模式”&quot; class=&quot;headerlink&quot; title=&quot;创建型模式之“工厂模式”&quot;&gt;&lt;/a&gt;创建型模式之“工厂模式”&lt;/h1&gt;&lt;h2 id=&quot;1-工厂模式简述&quot;&gt;&lt;a href=&quot;#1-工厂模式简述&quot; class=&quot;headerlink&quot; title=&quot;1. 工厂模式简述&quot;&gt;&lt;/a&gt;1. 工厂模式简述&lt;/h2&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;定义一个用于创建对象的接口，让子类决定实例化哪一个类，工厂方法使一个类的实例化延迟到其子类。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://wenka.github.io/pictures/2017010901.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://wenka.github.io/categories/Java/"/>
+    
+    
+      <category term="工厂模式" scheme="https://wenka.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="设计模式" scheme="https://wenka.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring4笔记之IOC（二）</title>
