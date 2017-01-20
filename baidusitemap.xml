@@ -4,8 +4,32 @@
 
     
   <url>
+    <loc>https://wenka.github.io/2017/01/20/gradle/</loc>
+    <lastmod>2017-01-20T14:20:08.752Z</lastmod>
+    <data>
+        <display>
+        <title>gradle入门使用</title>
+        <pubTime>2017-01-20T13:58:48.000Z</pubTime>
+        
+        <tag>GRADLE</tag>
+         
+        <tag>依赖管理</tag>
+         
+        <tag>项目构建</tag>
+         
+         
+           
+             
+              <breadCrumb title="gradle" url="https://wenka.github.io/categories/gradle/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wenka.github.io/2017/01/20/git/</loc>
-    <lastmod>2017-01-20T13:50:03.857Z</lastmod>
+    <lastmod>2017-01-20T14:19:52.123Z</lastmod>
     <data>
         <display>
         <title>git常用命令</title>
@@ -55,11 +79,11 @@
         <title>Spring4笔记之IOC（二）</title>
         <pubTime>2017-01-02T02:14:48.000Z</pubTime>
         
+        <tag>MVC</tag>
+         
         <tag>IOC</tag>
          
         <tag>DI</tag>
-         
-        <tag>MVC</tag>
          
          
            
@@ -79,11 +103,11 @@
         <title>Spring4笔记之IOC（一）</title>
         <pubTime>2017-01-01T10:41:51.000Z</pubTime>
         
+        <tag>MVC</tag>
+         
         <tag>IOC</tag>
          
         <tag>DI</tag>
-         
-        <tag>MVC</tag>
          
          
            
