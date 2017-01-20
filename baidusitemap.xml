@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://wenka.github.io/2017/01/20/git/</loc>
+    <lastmod>2017-01-20T13:50:03.857Z</lastmod>
+    <data>
+        <display>
+        <title>git常用命令</title>
+        <pubTime>2017-01-20T13:41:24.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>版本控制</tag>
+         
+         
+           
+             
+              <breadCrumb title="git" url="https://wenka.github.io/categories/git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wenka.github.io/2017/01/09/java_factory/</loc>
     <lastmod>2017-01-09T11:33:02.358Z</lastmod>
     <data>
@@ -33,11 +55,11 @@
         <title>Spring4笔记之IOC（二）</title>
         <pubTime>2017-01-02T02:14:48.000Z</pubTime>
         
-        <tag>MVC</tag>
-         
         <tag>IOC</tag>
          
         <tag>DI</tag>
+         
+        <tag>MVC</tag>
          
          
            
@@ -57,11 +79,11 @@
         <title>Spring4笔记之IOC（一）</title>
         <pubTime>2017-01-01T10:41:51.000Z</pubTime>
         
-        <tag>MVC</tag>
-         
         <tag>IOC</tag>
          
         <tag>DI</tag>
+         
+        <tag>MVC</tag>
          
          
            
