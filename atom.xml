@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenka.github.io/"/>
-  <updated>2017-02-05T02:54:46.851Z</updated>
+  <updated>2017-02-05T03:05:00.861Z</updated>
   <id>https://wenka.github.io/</id>
   
   <author>
@@ -14,6 +14,117 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sql_other</title>
+    <link href="https://wenka.github.io/2017/02/05/sql-other/"/>
+    <id>https://wenka.github.io/2017/02/05/sql-other/</id>
+    <published>2017-02-05T02:59:22.000Z</published>
+    <updated>2017-02-05T03:05:00.861Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><p>本文闲谈 SQL 命令中一些用到的：约束，sql关键字，sql函数。</p>
+<h1 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2 关键字"></a>2 关键字</h1><h2 id="2-1-CRUD-方面"><a href="#2-1-CRUD-方面" class="headerlink" title="2.1 CRUD 方面"></a>2.1 CRUD 方面</h2><p>CREATE SELECT UPDATE ALTER DELETE DROP 等此类关键字不在此处阐述。</p>
+<p>详见：<a href="https://wenka.github.io/2017/02/05/sql-CRUD/">SQL命令之CRUD操作</a></p>
+<h2 id="2-1-DISTINCT-去重"><a href="#2-1-DISTINCT-去重" class="headerlink" title="2.1 DISTINCT 去重"></a>2.1 DISTINCT 去重</h2><pre><code>SELECT DISTINCT 语句用于返回唯一不同的值。
+</code></pre><h2 id="2-2-WHERE-子句"><a href="#2-2-WHERE-子句" class="headerlink" title="2.2 WHERE 子句"></a>2.2 WHERE 子句</h2><p>为 SQL 添加条件。用法在 SQL 语句后面使用 <strong>WHERE [conditions…]</strong></p>
+<h2 id="2-3-ORDER-BY"><a href="#2-3-ORDER-BY" class="headerlink" title="2.3 ORDER BY"></a>2.3 ORDER BY</h2><p>根据指定的列进行排序。默认按照升序排序。</p>
+<ul>
+<li>ASC：升序。</li>
+<li>DESC：降序。</li>
+</ul>
+<h2 id="2-4-AND-OR"><a href="#2-4-AND-OR" class="headerlink" title="2.4 AND / OR"></a>2.4 AND / OR</h2><ul>
+<li>A AND B：若 A 与 B 都成立，则匹配。</li>
+<li>A OR B：若 Ａ 与 B 中有一个成立，则匹配。</li>
+</ul>
+<h2 id="2-5-UNION"><a href="#2-5-UNION" class="headerlink" title="2.5 UNION"></a>2.5 UNION</h2><p>并两个或者多个 SELECT 语句的结果集。</p>
+<p><em>注意：</em> UNION 内部的 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同。</p>
+<h2 id="2-5-GROUP-BY"><a href="#2-5-GROUP-BY" class="headerlink" title="2.5 GROUP BY"></a>2.5 GROUP BY</h2><p>分组。</p>
+<p><em>注：</em> 需要结合聚合函数使用。</p>
+<h2 id="2-6-HAVING-子句"><a href="#2-6-HAVING-子句" class="headerlink" title="2.6 HAVING 子句"></a>2.6 HAVING 子句</h2><p><strong>WHERE</strong> 关键字不能与 <strong>聚合函数</strong> 一起使用。<strong>HAVING</strong> 子句可以让我们筛选分组后的各组数据。</p>
+<h2 id="2-7-IN-与-EXISTS"><a href="#2-7-IN-与-EXISTS" class="headerlink" title="2.7 IN 与 EXISTS"></a>2.7 IN 与 EXISTS</h2><p>~~++<em>以后详细说明</em>++<br>~~</p>
+<h1 id="3-SQL-运算符"><a href="#3-SQL-运算符" class="headerlink" title="3 SQL 运算符"></a>3 SQL 运算符</h1><ul>
+<li>= ：等于</li>
+<li>&lt;&gt; ：不等于</li>
+<li>`&gt; ：大于</li>
+<li>`&lt; ：小于</li>
+<li>`&gt;= ：大于等于</li>
+<li>&lt;= ：小于等于</li>
+<li>BETWEEN…AND… ：介于某与某之间</li>
+<li>LIKE ：搜索某种模式</li>
+</ul>
+<h1 id="4-SQL-函数"><a href="#4-SQL-函数" class="headerlink" title="4 SQL 函数"></a>4 SQL 函数</h1><h2 id="4-1-日期函数"><a href="#4-1-日期函数" class="headerlink" title="4.1 日期函数"></a>4.1 日期函数</h2><ul>
+<li>NOW()：返回当前的日期和时间。</li>
+<li>CURDATE()：返回当前的日期。</li>
+<li>CURTIME()：返回当前的时间。</li>
+<li>DATE_ADD()：向日期添加指定的时间间隔。</li>
+<li>DATE_SUB()：从日期减去指定的时间间隔。</li>
+<li>DATEDIEF()：返回两个日期之间的天数。</li>
+<li>DATE_FORMAT()：用不同的格式显示日期/时间</li>
+</ul>
+<h2 id="4-2-聚合函数"><a href="#4-2-聚合函数" class="headerlink" title="4.2 聚合函数"></a>4.2 聚合函数</h2><p>含义：对一组值执行计算，并返回单个值。</p>
+<ul>
+<li>AVG()：返回数值列的平均值。</li>
+<li>COUNT()：返回匹配指定条件的行数。</li>
+<li>FIRST()/LAST()：返回指定列中的 第一个/最后一个 记录的值。</li>
+<li>MAX()：返回指定列中的最大值。</li>
+<li>MIN()：返回指定列中的最小值。</li>
+<li>SUM()：返回数值列的总和。</li>
+</ul>
+<h2 id="4-3-其它函数"><a href="#4-3-其它函数" class="headerlink" title="4.3 其它函数"></a>4.3 其它函数</h2><ul>
+<li>UCASE()：把字段的值转换为大写。</li>
+<li>LCASE()：把字段的值转换为小写。</li>
+<li><p>MID()：用于从文本字段中提取字符。</p>
+<pre><code>SELECT MID(column_name,index,length) FROM table_name;
+-- column 列名
+-- index 起始位置
+-- length 提取长度
+</code></pre></li>
+<li><p>LEN()：返回文本字段中值的长度。</p>
+</li>
+<li><p>ROUND()：把数值字段舍入为指定的小数位数。</p>
+<pre><code>SELECT ROUND(column_name,decimals) FROM table_name;
+-- column_name：列名
+-- decimals：精度
+</code></pre></li>
+</ul>
+<h1 id="5-约束"><a href="#5-约束" class="headerlink" title="5 约束"></a>5 约束</h1><ul>
+<li>NOT NULL：不为空。</li>
+<li><p>UNIQUE：唯一。</p>
+<ul>
+<li><p>添加唯一约束：ADD UNIQUE (列名)。撤销此约束：DROP INDEX 约束名</p>
+</li>
+<li><p>为多个列添加唯一约束：ADD CONSTRAINT 约束名 UNIQUE (列1.列2…)</p>
+</li>
+</ul>
+</li>
+<li><p>PK：主键</p>
+</li>
+<li>FK：外键</li>
+<li>CHECK：用于限制列中的值的范围。</li>
+<li>DEFAULT：默认值。</li>
+</ul>
+<h1 id="6-结束语"><a href="#6-结束语" class="headerlink" title="6 结束语"></a>6 结束语</h1><p>此文介绍了 SQL 中常用的一些只是。若有补充，请 <em>–<strong>留言</strong>–</em> </p>
+<p><em>（本人愚钝，请多指教！2017/2/5 11:04:59  ）</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      对于简单的数据库来说，无非就是 CRUD 操作。本文只对简单的 CRUD 命令进行综述。
+    
+    </summary>
+    
+      <category term="sql" scheme="https://wenka.github.io/categories/sql/"/>
+    
+    
+      <category term="sql语句" scheme="https://wenka.github.io/tags/sql%E8%AF%AD%E5%8F%A5/"/>
+    
+      <category term="约束" scheme="https://wenka.github.io/tags/%E7%BA%A6%E6%9D%9F/"/>
+    
+      <category term="sql关键字" scheme="https://wenka.github.io/tags/sql%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    
+      <category term="sql函数" scheme="https://wenka.github.io/tags/sql%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL命令之CRUD操作</title>
