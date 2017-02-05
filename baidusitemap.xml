@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://wenka.github.io/2017/02/05/sql-CRUD/</loc>
+    <lastmod>2017-02-05T02:54:46.851Z</lastmod>
+    <data>
+        <display>
+        <title>SQL命令之CRUD操作</title>
+        <pubTime>2017-02-05T02:41:30.000Z</pubTime>
+        
+        <tag>sql语句</tag>
+         
+        <tag>CRUD</tag>
+         
+         
+           
+             
+              <breadCrumb title="sql" url="https://wenka.github.io/categories/sql/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://wenka.github.io/2017/01/20/gradle/</loc>
     <lastmod>2017-01-20T14:20:08.752Z</lastmod>
     <data>
@@ -79,11 +101,11 @@
         <title>Spring4笔记之IOC（二）</title>
         <pubTime>2017-01-02T02:14:48.000Z</pubTime>
         
-        <tag>MVC</tag>
-         
         <tag>IOC</tag>
          
         <tag>DI</tag>
+         
+        <tag>MVC</tag>
          
          
            
@@ -103,11 +125,11 @@
         <title>Spring4笔记之IOC（一）</title>
         <pubTime>2017-01-01T10:41:51.000Z</pubTime>
         
-        <tag>MVC</tag>
-         
         <tag>IOC</tag>
          
         <tag>DI</tag>
+         
+        <tag>MVC</tag>
          
          
            

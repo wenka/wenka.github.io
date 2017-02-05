@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenka.github.io/"/>
-  <updated>2017-01-20T14:20:08.752Z</updated>
+  <updated>2017-02-05T02:54:46.851Z</updated>
   <id>https://wenka.github.io/</id>
   
   <author>
@@ -14,6 +14,144 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL命令之CRUD操作</title>
+    <link href="https://wenka.github.io/2017/02/05/sql-CRUD/"/>
+    <id>https://wenka.github.io/2017/02/05/sql-CRUD/</id>
+    <published>2017-02-05T02:41:30.000Z</published>
+    <updated>2017-02-05T02:54:46.851Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对于简单的数据库来说，无非就是 <strong>CRUD</strong> 操作。本文只对简单的 <strong>CRUD</strong> 命令进行综述。</p>
+<h2 id="1-1-关于数据库命名的那些事"><a href="#1-1-关于数据库命名的那些事" class="headerlink" title="1.1 关于数据库命名的那些事"></a>1.1 关于数据库命名的那些事</h2><ul>
+<li>SQL 语对英文大小不敏感。</li>
+<li>表名/数据库名/列名：统一大小写（不要既有大写又有小写）。若存在多个单词，使用下划线[ _ ]分割。</li>
+<li>虽说 SQL 对大小写不敏感，但是在使用第三方工具对 ORACLE 数据库操作的情况下，建议使用 <strong>大写</strong>。<em>[本人入过坑，其它数据库暂没出现问题]</em></li>
+</ul>
+<h1 id="2-“-C-“-操作"><a href="#2-“-C-“-操作" class="headerlink" title="2 “ C “ 操作"></a>2 “ C “ 操作</h1><h2 id="2-1-创建数据库"><a href="#2-1-创建数据库" class="headerlink" title="2.1 创建数据库"></a>2.1 创建数据库</h2><pre><code>-- 创建数据库
+
+CREATE DATABASE db_name
+
+-- 使用数据库
+
+use db_name
+</code></pre><h2 id="2-2-创建表"><a href="#2-2-创建表" class="headerlink" title="2.2 创建表"></a>2.2 创建表</h2><pre><code>-- 创建表
+CREATE TABLE table_name(
+    column_name_1 data_type [constraint]，
+    column_name_2 data_type [constraint]，
+    ......
+)
+</code></pre><p><em>注：</em></p>
+<ul>
+<li>column_name：列名</li>
+<li>date_type：数据类型</li>
+<li>constraint：约束</li>
+</ul>
+<h2 id="2-3-插入数据"><a href="#2-3-插入数据" class="headerlink" title="2.3 插入数据"></a>2.3 插入数据</h2><pre><code>-- 向 &apos;table_name&apos; 表中插入数据
+INSERT INTO table_name VALUES (value1,value2...)
+</code></pre><p><em>注：</em><br>value1,value2… 等值的顺序要与表中对应的列保持一致。</p>
+<pre><code>-- 向 &apos;table_name&apos; 中的某些列插入数据 其它列为默认数据
+INSERT INTO table_name (column1,column2...)
+VALUES (value1,value2...)
+</code></pre><p><em>注：</em><br>value值要与column列一一对应。</p>
+<h1 id="3-“U”-操作"><a href="#3-“U”-操作" class="headerlink" title="3 “U” 操作"></a>3 “U” 操作</h1><h2 id="3-1-UPDATE：修改表中的数据。"><a href="#3-1-UPDATE：修改表中的数据。" class="headerlink" title="3.1 UPDATE：修改表中的数据。"></a>3.1 UPDATE：修改表中的数据。</h2><pre><code>-- 更新表中某列的数据
+UPDATE table_name 
+SET column_name1=new_value1
+[,column_name2=new_value2...] 
+[WHERE ....]
+</code></pre><h2 id="3-2-ALTER：修改表"><a href="#3-2-ALTER：修改表" class="headerlink" title="3.2 ALTER：修改表"></a>3.2 ALTER：修改表</h2><h3 id="3-2-1-为表中添加列"><a href="#3-2-1-为表中添加列" class="headerlink" title="3.2.1 为表中添加列"></a>3.2.1 为表中添加列</h3><pre><code>ALTER TABLE table_name 
+ADD new_column_name data_type
+</code></pre><h3 id="3-2-2-删除表中的列"><a href="#3-2-2-删除表中的列" class="headerlink" title="3.2.2 删除表中的列"></a>3.2.2 删除表中的列</h3><pre><code>ALTER TABLE table_name
+DROP COLUMN column_name
+</code></pre><h3 id="3-3-3-修改表中的列的数据类型"><a href="#3-3-3-修改表中的列的数据类型" class="headerlink" title="3.3.3 修改表中的列的数据类型"></a>3.3.3 修改表中的列的数据类型</h3><pre><code>-- SQLSERVER / MS ACCESS 数据库
+ALTER TABLE tabl_name
+ALTER COLUMN column_name new_date_type
+
+-- MYSQL / ORACLE 数据库
+ALTER TABLE table_name
+MODIFY COLUMN column_name new_data_type
+</code></pre><h1 id="4-“D”-操作"><a href="#4-“D”-操作" class="headerlink" title="4 “D” 操作"></a>4 “D” 操作</h1><h2 id="4-1-DELETE"><a href="#4-1-DELETE" class="headerlink" title="4.1 DELETE"></a>4.1 DELETE</h2><ul>
+<li><p>旨在删除表中的数据。</p>
+<pre><code>DELETE FROM table_name
+[WHERE condition...[条件]]
+</code></pre></li>
+</ul>
+<h2 id="4-2-DROP"><a href="#4-2-DROP" class="headerlink" title="4.2 DROP"></a>4.2 DROP</h2><ul>
+<li><p>删除表、数据库、索引</p>
+<pre><code>-- 删除表
+DROP TABLE table_name
+
+-- 删除数据库
+DROP DATABASE db_name
+</code></pre></li>
+</ul>
+<p><em>注：</em> 对于不同的数据库删除索引的方式不一样</p>
+<p>参考：<a href="http://www.runoob.com/sql/sql-drop.html" target="_blank" rel="external">http://www.runoob.com/sql/sql-drop.html</a></p>
+<h2 id="4-2-TRUNCATE"><a href="#4-2-TRUNCATE" class="headerlink" title="4.2 TRUNCATE"></a>4.2 TRUNCATE</h2><ul>
+<li><p>清空表（不删除表的结构，只删除其中的数据）</p>
+<pre><code>-- 清空表
+TRUNCATE TABLE table_name
+</code></pre></li>
+</ul>
+<h1 id="5-“R”-操作"><a href="#5-“R”-操作" class="headerlink" title="5 “R” 操作"></a>5 “R” 操作</h1><h2 id="5-1-单表查询"><a href="#5-1-单表查询" class="headerlink" title="5.1 单表查询"></a>5.1 单表查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SELECT column1,column2... FROM table_name</div><div class="line">[WHERE [contion...]]</div></pre></td></tr></table></figure>
+<p><em>注：</em> 若查询所有的列，可使用 * 表示。</p>
+<h2 id="5-2-多表查询"><a href="#5-2-多表查询" class="headerlink" title="5.2 多表查询"></a>5.2 多表查询</h2><pre><code>表1：t1
+  id | name
+-----+------
+   1 | a
+   2 | b
+   3 | c
+
+表2：t2
+  id | value
+-----+-------
+   1 | xxx
+   3 | yyy
+   5 | zzz
+</code></pre><h2 id="5-2-1-JOIN-INNER-JOIN"><a href="#5-2-1-JOIN-INNER-JOIN" class="headerlink" title="5.2.1 JOIN / INNER JOIN"></a>5.2.1 JOIN / INNER JOIN</h2><p>把多张表中的行结合起来，基于这些表之间的共同字段。返回满足 <strong>JOIN</strong> 条件的所有行。</p>
+<pre><code>SELECT * FROM t1 INNER JOIN t2 ON t1.id=t2.id 
+
+-- 结果：
+  id | name | value
+-----+------+-------
+   1 | a    | xxx
+   3 | c    | yyy
+</code></pre><h2 id="5-2-2-LEFT-JOIN"><a href="#5-2-2-LEFT-JOIN" class="headerlink" title="5.2.2 LEFT JOIN"></a>5.2.2 LEFT JOIN</h2><p>返回表1的全部数据，以及匹配表1的表2中的数据。若表1中有未匹配项，则补充空值。</p>
+<pre><code>SELECT * FROM t1 LEFT JOIN t2 ON t1.id=t2.id
+
+-- 结果：
+  id | name |  id | value
+-----+------+-----+-------
+   1 | a    |   1 | xxx
+   2 | b    |     |
+   3 | c    |   3 | yyy
+</code></pre><h2 id="5-2-3-RIGHT-JOIN"><a href="#5-2-3-RIGHT-JOIN" class="headerlink" title="5.2.3 RIGHT JOIN"></a>5.2.3 RIGHT JOIN</h2><p>返回表2的全部数据，以及匹配表2的表1中的数据。若表2中有未匹配项，则补充空值。</p>
+<pre><code>SELECT * FROM t1 RIGHT JOIN t2 ON t1.id=t2.id
+
+-- 结果：
+  id | name |  id | value
+-----+------+-----+-------
+   1 | a    |   1 | xxx
+   3 | c    |   3 | yyy
+     |      |   5 | zzz
+</code></pre><h1 id="6-结束语"><a href="#6-结束语" class="headerlink" title="6 结束语"></a>6 结束语</h1><p>此文介绍了 SQL 中简单的 CRUD 操作。若有补充，请 <em>–<strong>留言</strong>–</em> </p>
+<p><em>（本人愚钝，请多指教！2017/2/5 10:54:45 ）</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      对于简单的数据库来说，无非就是 CRUD 操作。本文只对简单的 CRUD 命令进行综述。
+    
+    </summary>
+    
+      <category term="sql" scheme="https://wenka.github.io/categories/sql/"/>
+    
+    
+      <category term="sql语句" scheme="https://wenka.github.io/tags/sql%E8%AF%AD%E5%8F%A5/"/>
+    
+      <category term="CRUD" scheme="https://wenka.github.io/tags/CRUD/"/>
+    
+  </entry>
   
   <entry>
     <title>gradle入门使用</title>
@@ -594,11 +732,11 @@ destory...
       <category term="Spring4" scheme="https://wenka.github.io/categories/Spring4/"/>
     
     
-      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
-    
       <category term="IOC" scheme="https://wenka.github.io/tags/IOC/"/>
     
       <category term="DI" scheme="https://wenka.github.io/tags/DI/"/>
+    
+      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
     
   </entry>
   
@@ -847,11 +985,11 @@ user.show();
       <category term="Spring4" scheme="https://wenka.github.io/categories/Spring4/"/>
     
     
-      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
-    
       <category term="IOC" scheme="https://wenka.github.io/tags/IOC/"/>
     
       <category term="DI" scheme="https://wenka.github.io/tags/DI/"/>
+    
+      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
     
   </entry>
   
