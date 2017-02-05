@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenka.github.io/"/>
-  <updated>2017-02-05T03:05:00.861Z</updated>
+  <updated>2017-02-05T03:07:05.704Z</updated>
   <id>https://wenka.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>sql_other</title>
+    <title>sql命令之杂七杂八知识</title>
     <link href="https://wenka.github.io/2017/02/05/sql-other/"/>
     <id>https://wenka.github.io/2017/02/05/sql-other/</id>
     <published>2017-02-05T02:59:22.000Z</published>
-    <updated>2017-02-05T03:05:00.861Z</updated>
+    <updated>2017-02-05T03:07:05.704Z</updated>
     
     <content type="html"><![CDATA[<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><p>本文闲谈 SQL 命令中一些用到的：约束，sql关键字，sql函数。</p>
 <h1 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2 关键字"></a>2 关键字</h1><h2 id="2-1-CRUD-方面"><a href="#2-1-CRUD-方面" class="headerlink" title="2.1 CRUD 方面"></a>2.1 CRUD 方面</h2><p>CREATE SELECT UPDATE ALTER DELETE DROP 等此类关键字不在此处阐述。</p>

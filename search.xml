@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[sql_other]]></title>
+      <title><![CDATA[sql命令之杂七杂八知识]]></title>
       <url>%2F2017%2F02%2F05%2Fsql-other%2F</url>
       <content type="text"><![CDATA[1 前言本文闲谈 SQL 命令中一些用到的：约束，sql关键字，sql函数。 2 关键字2.1 CRUD 方面CREATE SELECT UPDATE ALTER DELETE DROP 等此类关键字不在此处阐述。 详见：SQL命令之CRUD操作 2.1 DISTINCT 去重SELECT DISTINCT 语句用于返回唯一不同的值。 2.2 WHERE 子句为 SQL 添加条件。用法在 SQL 语句后面使用 WHERE [conditions…] 2.3 ORDER BY根据指定的列进行排序。默认按照升序排序。 ASC：升序。 DESC：降序。 2.4 AND / OR A AND B：若 A 与 B 都成立，则匹配。 A OR B：若 Ａ 与 B 中有一个成立，则匹配。 2.5 UNION并两个或者多个 SELECT 语句的结果集。 注意： UNION 内部的 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同。 2.5 GROUP BY分组。 注： 需要结合聚合函数使用。 2.6 HAVING 子句WHERE 关键字不能与 聚合函数 一起使用。HAVING 子句可以让我们筛选分组后的各组数据。 2.7 IN 与 EXISTS~~++以后详细说明++~~ 3 SQL 运算符 = ：等于 &lt;&gt; ：不等于 `&gt; ：大于 `&lt; ：小于 `&gt;= ：大于等于 &lt;= ：小于等于 BETWEEN…AND… ：介于某与某之间 LIKE ：搜索某种模式 4 SQL 函数4.1 日期函数 NOW()：返回当前的日期和时间。 CURDATE()：返回当前的日期。 CURTIME()：返回当前的时间。 DATE_ADD()：向日期添加指定的时间间隔。 DATE_SUB()：从日期减去指定的时间间隔。 DATEDIEF()：返回两个日期之间的天数。 DATE_FORMAT()：用不同的格式显示日期/时间 4.2 聚合函数含义：对一组值执行计算，并返回单个值。 AVG()：返回数值列的平均值。 COUNT()：返回匹配指定条件的行数。 FIRST()/LAST()：返回指定列中的 第一个/最后一个 记录的值。 MAX()：返回指定列中的最大值。 MIN()：返回指定列中的最小值。 SUM()：返回数值列的总和。 4.3 其它函数 UCASE()：把字段的值转换为大写。 LCASE()：把字段的值转换为小写。 MID()：用于从文本字段中提取字符。 SELECT MID(column_name,index,length) FROM table_name; -- column 列名 -- index 起始位置 -- length 提取长度 LEN()：返回文本字段中值的长度。 ROUND()：把数值字段舍入为指定的小数位数。 SELECT ROUND(column_name,decimals) FROM table_name; -- column_name：列名 -- decimals：精度 5 约束 NOT NULL：不为空。 UNIQUE：唯一。 添加唯一约束：ADD UNIQUE (列名)。撤销此约束：DROP INDEX 约束名 为多个列添加唯一约束：ADD CONSTRAINT 约束名 UNIQUE (列1.列2…) PK：主键 FK：外键 CHECK：用于限制列中的值的范围。 DEFAULT：默认值。 6 结束语此文介绍了 SQL 中常用的一些只是。若有补充，请 –留言– （本人愚钝，请多指教！2017/2/5 11:04:59 ）]]></content>
     </entry>
