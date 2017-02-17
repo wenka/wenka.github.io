@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenka.github.io/"/>
-  <updated>2017-02-05T03:07:05.704Z</updated>
+  <updated>2017-02-17T13:47:18.099Z</updated>
   <id>https://wenka.github.io/</id>
   
   <author>
@@ -14,6 +14,96 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>diary_1</title>
+    <link href="https://wenka.github.io/2017/02/17/diary-1/"/>
+    <id>https://wenka.github.io/2017/02/17/diary-1/</id>
+    <published>2017-02-17T13:35:06.000Z</published>
+    <updated>2017-02-17T13:47:18.099Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-代码命名"><a href="#1-代码命名" class="headerlink" title="1 代码命名"></a>1 代码命名</h1><h2 id="1-1-数据库命名"><a href="#1-1-数据库命名" class="headerlink" title="1.1 数据库命名"></a>1.1 数据库命名</h2><h3 id="1-1-1-统一大小写（我赞成全部大写）-多个单词用下划线分割。"><a href="#1-1-1-统一大小写（我赞成全部大写）-多个单词用下划线分割。" class="headerlink" title="1.1.1 统一大小写（我赞成全部大写） 多个单词用下划线分割。"></a>1.1.1 统一大小写（我赞成全部大写） 多个单词用下划线分割。</h3><pre><code>如：销售人员表 
+正确示例：SALES_PERSON/sales_person 
+错误示例：salesPerson
+</code></pre><h3 id="1-1-2-命名清楚"><a href="#1-1-2-命名清楚" class="headerlink" title="1.1.2 命名清楚"></a>1.1.2 命名清楚</h3><ul>
+<li>意思表达清晰：能表达出此 数据库/数据表/列 的含义。</li>
+<li>反对使用拼音命名。毕竟中华字典太过于博大精深，容易造成含义不清楚。若英文不好的同学，花两秒查查谷歌翻译也比用拼音强。</li>
+</ul>
+<h2 id="1-2-程序代码命名"><a href="#1-2-程序代码命名" class="headerlink" title="1.2 程序代码命名"></a>1.2 程序代码命名</h2><ul>
+<li>参数变量/类名/方法名等采用驼峰命名法。</li>
+<li>终态命名，即在 JAVA 中使用 final 修饰的采用：统一大写，多单词使用下划线分割。</li>
+<li>命名清晰：<ul>
+<li>避免使用数字区分同一类型的变量。如person1/person2。<br>意思表达清晰：能表达出此 参数/方法/类等 的含义，不要使用拼音命名。</li>
+</ul>
+</li>
+</ul>
+<h1 id="2-代码格式"><a href="#2-代码格式" class="headerlink" title="2 代码格式"></a>2 代码格式</h1><ul>
+<li><p>避免将代码写到一整行。一行代码过长即不美观，也不方便阅读。</p>
+</li>
+<li><p>适当使用空行。将不同逻辑的隔开，方便阅读。</p>
+</li>
+<li><p>代码缩进。一般缩进四个字符。</p>
+</li>
+<li><p>相关IDE格式快捷键：eclipse：CTRL+F IDEA:CTRL+ALT+L</p>
+</li>
+</ul>
+<h1 id="3-代码内容"><a href="#3-代码内容" class="headerlink" title="3 代码内容"></a>3 代码内容</h1><h2 id="3-1-此处我想说的是：关于异常的那些事"><a href="#3-1-此处我想说的是：关于异常的那些事" class="headerlink" title="3.1 此处我想说的是：关于异常的那些事"></a>3.1 此处我想说的是：关于异常的那些事</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;避免使用 try…catch… ，使用 throw… ，谁的错就还给谁。<br>然后在前台页面将错误信息展示给用户，告诉 TA 犯的错。</p>
+<h2 id="3-2-消除代码冗余"><a href="#3-2-消除代码冗余" class="headerlink" title="3.2 消除代码冗余"></a>3.2 消除代码冗余</h2><p>并不是代码写的越多就越好。<br>如下面程序片段：</p>
+<pre><code>01&gt; if (state != null) {
+02&gt; 
+03&gt;     if (state == 1) {
+04&gt; 
+05&gt;         hql += &quot; and wp.state = 1 &quot;;
+06&gt; 
+07&gt;     }
+
+08&gt;     if (state == 0) {
+
+09&gt;     hql += &quot; and wp.state = 0 &quot;;
+
+10&gt;     }
+11&gt; }
+</code></pre><p>第三行到第十行完全可以使用一行代替：</p>
+<pre><code>hql += &quot; and wp.state =  &quot; + state;
+</code></pre><p>若有人认为 state 只有0/1取值，合并的一行就不能过滤0/1。我想此问题完全可以加入最外层判断语句中。</p>
+<h2 id="3-3-创建变量的位置"><a href="#3-3-创建变量的位置" class="headerlink" title="3.3 创建变量的位置"></a>3.3 创建变量的位置</h2><p>哈，看到此，有人就会问变量位置有啥好说的，创建到哪不都一样，能用就行？</p>
+<p>先不多说，看如下程序片段：</p>
+<pre><code>01&gt;  List&lt;People&gt; peoples = new ArrayList&lt;&gt;();
+02&gt;  
+03&gt;  for(int i = 0; i&lt;10; i++){
+04&gt;      People people = new People();
+05&gt;      peoples.add(people);
+06&gt;  }
+</code></pre><p>在第四行会造成频繁的创建变量。倘若100次，1000次，10000次呢？内存就会不停的创建，销毁。</p>
+<p>若将此代码片段稍微改动一下：</p>
+<pre><code>01&gt;  List&lt;People&gt; peoples = new ArrayList&lt;&gt;();
+02&gt;  People people = null;
+03&gt;  
+04&gt;  for(int i = 0; i&lt;10; i++){
+05&gt;      people = new People();
+06&gt;      peoples.add(people);
+07&gt;  }
+</code></pre><p>这样的话，就不会重复的开启内存空间喽。</p>
+<h2 id="3-4-代码的复用"><a href="#3-4-代码的复用" class="headerlink" title="3.4 代码的复用"></a>3.4 代码的复用</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将自己的代码写的有价值。代码的复用同样是消除冗余代码的一部分。在此多多利用 JAVA 中三大特性之一的封装。</p>
+<h1 id="4-拥有自己的一套代码"><a href="#4-拥有自己的一套代码" class="headerlink" title="4 拥有自己的一套代码"></a>4 拥有自己的一套代码</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;身为程序员，一直都无法拥有属于自己的代码，岂不是很失落？我们虽不能与大神相比，但是我们可以写上一套代码供自己重复使用。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;比如说：用户模块。基本上每个网站都有需要用户模块，因此，这部分，我们完全可以单独拿出来，并将此中的相关内容：权限验证，数据库表等完善。<br>这样就有了属于自己的一代程序代码。况且 IDE 都可以将代码程序打包成 JAR 文件，这样，以后就方便我们使用了。有空的话，还可以维护更新，这样<br>也能提高自己。</p>
+<p><em>（本人愚钝，请多指教！2017/2/17 21:47:15  ）</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      闲谈一个初级程序员在初次入职的感受
+    
+    </summary>
+    
+      <category term="程序人生" scheme="https://wenka.github.io/categories/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
+    
+    
+      <category term="开发者日常" scheme="https://wenka.github.io/tags/%E5%BC%80%E5%8F%91%E8%80%85%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="程序人生" scheme="https://wenka.github.io/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>sql命令之杂七杂八知识</title>
@@ -843,11 +933,11 @@ destory...
       <category term="Spring4" scheme="https://wenka.github.io/categories/Spring4/"/>
     
     
-      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
-    
       <category term="IOC" scheme="https://wenka.github.io/tags/IOC/"/>
     
       <category term="DI" scheme="https://wenka.github.io/tags/DI/"/>
+    
+      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
     
   </entry>
   
@@ -1096,11 +1186,11 @@ user.show();
       <category term="Spring4" scheme="https://wenka.github.io/categories/Spring4/"/>
     
     
-      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
-    
       <category term="IOC" scheme="https://wenka.github.io/tags/IOC/"/>
     
       <category term="DI" scheme="https://wenka.github.io/tags/DI/"/>
+    
+      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
     
   </entry>
   
