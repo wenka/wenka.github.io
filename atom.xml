@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenka.github.io/"/>
-  <updated>2017-02-17T13:47:18.099Z</updated>
+  <updated>2017-03-25T07:22:40.342Z</updated>
   <id>https://wenka.github.io/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Java生成表格实例</title>
+    <link href="https://wenka.github.io/2017/03/25/workBook/"/>
+    <id>https://wenka.github.io/2017/03/25/workBook/</id>
+    <published>2017-03-25T07:01:08.000Z</published>
+    <updated>2017-03-25T07:22:40.342Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-操作步骤"><a href="#1-操作步骤" class="headerlink" title="1 操作步骤"></a>1 操作步骤</h2><ol>
+<li>建立 excel 模板</li>
+<li>把将要写入 excel 的数据转换为 Map 类型。</li>
+<li>数据写入</li>
+<li>在服务器端生成文件</li>
+<li>下载</li>
+</ol>
+<h2 id="2-加入依赖"><a href="#2-加入依赖" class="headerlink" title="2 加入依赖"></a>2 加入依赖</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Gradle</span></div><div class="line">compile <span class="string">'org.jeecg:easypoi-annotation:2.3.1'</span></div><div class="line">compile <span class="string">'org.jeecg:easypoi-base:2.3.1'</span></div><div class="line">compile <span class="string">'org.jeecg:easypoi-web:2.3.1'</span></div></pre></td></tr></table></figure>
+<h2 id="3-新建-excel-模板"><a href="#3-新建-excel-模板" class="headerlink" title="3 新建 excel 模板"></a>3 新建 excel 模板</h2><h3 id="3-1-模板语法"><a href="#3-1-模板语法" class="headerlink" title="3.1 模板语法"></a>3.1 模板语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- 空格分割</div><div class="line">- 三目运算 &#123;&#123;test ? obj:obj2&#125;&#125;</div><div class="line">- n: 表示 这个cell是数值类型 &#123;&#123;n:&#125;&#125; 用来处理数字问题,防止上面有小叹号</div><div class="line">- le: 代表长度&#123;&#123;le:()&#125;&#125; 在if/else 运用&#123;&#123;le:() &gt; 8 ? obj1 : obj2&#125;&#125;</div><div class="line">- fd: 格式化时间 &#123;&#123;fd:(obj;yyyy-MM-dd)&#125;&#125;使用java的时间格式化,进行格式化处理</div><div class="line">- fn: 格式化数字 &#123;&#123;fn:(obj;###.00)&#125;&#125; 处理小数点问题</div><div class="line">- 单引号表示常量值 &apos;&apos;,比如&apos;1&apos; 那么输出的就是 1</div><div class="line">- fe: 遍历数据,创建row</div><div class="line">- !fe: 遍历数据不创建row</div><div class="line">- $fe: 下移插入,把当前行,下面的行全部下移.size()行,然后插入</div><div class="line">- #fe: 行遍历 其他都是列遍历,这个是横向遍历</div><div class="line">- !if: 删除当前列 &#123;&#123;!if:(test)&#125;&#125;</div><div class="line">- &amp;NULL&amp;: 控制</div><div class="line">- ]]: 换行符解决多行遍历的问题,详情看下嘛的遍历标签</div></pre></td></tr></table></figure>
+<h3 id="3-2-模板示例"><a href="#3-2-模板示例" class="headerlink" title="3.2 模板示例"></a>3.2 模板示例</h3><p>template.xls:</p>
+<p><img src="https://wenka.github.io/pictures/2017032501.png" alt="">|</p>
+<h1 id="4-java代码"><a href="#4-java代码" class="headerlink" title="4 java代码"></a>4 java代码</h1><ol>
+<li><p>注入文件路径</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//从配置文件中读取文件上传下载路径</span></div><div class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;upload.save.dir&#125;"</span>)</div><div class="line"><span class="keyword">private</span> String savePath;</div></pre></td></tr></table></figure>
+</li>
+<li><p>下载接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**right-aligned</span></div><div class="line">  * 报表下载</div><div class="line">  *</div><div class="line">  * <span class="doctag">@param</span> organIds</div><div class="line">  * <span class="doctag">@param</span> response</div><div class="line">  * <span class="doctag">@throws</span> IOException</div><div class="line">  */</div><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/download"</span>, method = RequestMethod.GET)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">downLoadReport</span><span class="params">(@RequestParam(required = <span class="keyword">false</span>)</span> List&lt;String&gt; organIds, HttpServletResponse response) <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (organIds == <span class="keyword">null</span>) &#123;</div><div class="line">        organIds = <span class="keyword">this</span>.organIds;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Map&lt;String, Object&gt; values = <span class="keyword">new</span> LinkedHashMap&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="comment">//构建 Map 对象</span></div><div class="line">    values = <span class="keyword">this</span>.constructValues(organIds, values);</div><div class="line"></div><div class="line">    <span class="comment">//读取模板</span></div><div class="line">    TemplateExportParams params = <span class="keyword">new</span> TemplateExportParams(</div><div class="line">            <span class="string">"src/main/resources/template/template.xls"</span>, <span class="keyword">true</span>);</div><div class="line">    params.setColForEach(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">    <span class="comment">//生成 Excel</span></div><div class="line">    Workbook book = ExcelExportUtil.exportExcel(params, values);</div><div class="line"></div><div class="line">    String fileName = Convertor.formatTime(<span class="keyword">new</span> Date()) + <span class="string">".xls"</span>;</div><div class="line">    String uuid = UUID.randomUUID().toString() + <span class="string">".xls"</span>;</div><div class="line"></div><div class="line">    <span class="comment">//在服务器端生成文件</span></div><div class="line">    FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(savePath + <span class="string">"/"</span> + uuid);</div><div class="line">    book.write(fos);</div><div class="line">    fos.close();</div><div class="line"></div><div class="line">    <span class="comment">//下载文件</span></div><div class="line">    <span class="keyword">this</span>.download(savePath + <span class="string">"/"</span> + uuid, <span class="string">"application/vnd.ms-excel"</span>, response, fileName);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>构建 Map 私有类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> Map&lt;String, Object&gt; <span class="title">constructValues</span><span class="params">(List&lt;String&gt; organIds, Map&lt;String, Object&gt; values)</span> </span>&#123;</div><div class="line">       Date date = <span class="keyword">new</span> Date();</div><div class="line">       String dates = Convertor.formatDate(date);</div><div class="line">       List&lt;Map&lt;String, Object&gt;&gt; answer = reportService.getAnswer(dates, <span class="keyword">this</span>.organIds);</div><div class="line"></div><div class="line">       <span class="comment">// Key 值与模板中的名字相对应</span></div><div class="line">       values.put(<span class="string">"date"</span>, Convertor.formatTime(date));</div><div class="line">       values.put(<span class="string">"organName"</span>, <span class="keyword">this</span>.primaryOrgan.getName());</div><div class="line">       values.put(<span class="string">"checkslist"</span>, answer);</div><div class="line">       List&lt;Map&lt;String, Object&gt;&gt; chemicalListByOrganIdss = reportService.getChemicalListByOrganIdss(organIds, Integer.valueOf(-<span class="number">1</span>), Integer.valueOf(-<span class="number">1</span>));</div><div class="line">       values.put(<span class="string">"chemicalist"</span>, chemicalListByOrganIdss);</div><div class="line"><span class="comment">//        values.putAll(answer.get(0));</span></div><div class="line">       <span class="keyword">return</span> values;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>下载私有类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 文件下载私有类</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> fileName 服务器端文件名称</div><div class="line"> * <span class="doctag">@param</span> fileType 文件类型</div><div class="line"> * <span class="doctag">@param</span> response</div><div class="line"> * <span class="doctag">@param</span> originalName 原生名字（下载名）</div><div class="line"> * <span class="doctag">@throws</span> IOException</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">download</span><span class="params">(String fileName, String fileType, HttpServletResponse response, String originalName)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">    response.setContentType(fileType);</div><div class="line">    originalName = <span class="keyword">new</span> String(originalName.getBytes(<span class="string">"UTF-8"</span>), <span class="string">"ISO8859-1"</span>);</div><div class="line"></div><div class="line">    response.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment; filename="</span> + originalName);</div><div class="line">    FileInputStream in = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(fileName));</div><div class="line">    OutputStream out = response.getOutputStream();</div><div class="line"></div><div class="line">    <span class="keyword">byte</span>[] b = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">512</span>];</div><div class="line">    <span class="keyword">while</span> ((in.read(b)) != -<span class="number">1</span>) &#123;</div><div class="line">        out.write(b);</div><div class="line">    &#125;</div><div class="line">    out.flush();</div><div class="line">    in.close();</div><div class="line">    out.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5 总结"></a>5 总结</h1><ol>
+<li>建立 excel 模板</li>
+<li>TemplateExportParams 类：读取模板</li>
+<li>生成相对应的 Map<string, object=""> 对象</string,></li>
+<li>使用 <strong>ExcelExportUtil.exportExcel(TemplateExportParams params, Map<string, object=""> values)</string,></strong> 生成 <strong>Workbook</strong> 对象</li>
+<li>生成 excel 文件</li>
+<li>下载</li>
+</ol>
+<p><em>（本人愚钝，请多指教！2017/3/25 14:50:59  ）</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      使用Java生成动态Excel表格
+    
+    </summary>
+    
+      <category term="Java" scheme="https://wenka.github.io/categories/Java/"/>
+    
+    
+      <category term="WorkBook" scheme="https://wenka.github.io/tags/WorkBook/"/>
+    
+      <category term="Java" scheme="https://wenka.github.io/tags/Java/"/>
+    
+      <category term="下载" scheme="https://wenka.github.io/tags/%E4%B8%8B%E8%BD%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>diary_1</title>
@@ -110,9 +170,10 @@
     <link href="https://wenka.github.io/2017/02/05/sql-other/"/>
     <id>https://wenka.github.io/2017/02/05/sql-other/</id>
     <published>2017-02-05T02:59:22.000Z</published>
-    <updated>2017-02-05T03:07:05.704Z</updated>
+    <updated>2017-03-25T06:46:43.277Z</updated>
     
     <content type="html"><![CDATA[<h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h1><p>本文闲谈 SQL 命令中一些用到的：约束，sql关键字，sql函数。</p>
+<a id="more"></a>
 <h1 id="2-关键字"><a href="#2-关键字" class="headerlink" title="2 关键字"></a>2 关键字</h1><h2 id="2-1-CRUD-方面"><a href="#2-1-CRUD-方面" class="headerlink" title="2.1 CRUD 方面"></a>2.1 CRUD 方面</h2><p>CREATE SELECT UPDATE ALTER DELETE DROP 等此类关键字不在此处阐述。</p>
 <p>详见：<a href="https://wenka.github.io/2017/02/05/sql-CRUD/">SQL命令之CRUD操作</a></p>
 <h2 id="2-1-DISTINCT-去重"><a href="#2-1-DISTINCT-去重" class="headerlink" title="2.1 DISTINCT 去重"></a>2.1 DISTINCT 去重</h2><pre><code>SELECT DISTINCT 语句用于返回唯一不同的值。
@@ -193,13 +254,13 @@
 <li>CHECK：用于限制列中的值的范围。</li>
 <li>DEFAULT：默认值。</li>
 </ul>
-<h1 id="6-结束语"><a href="#6-结束语" class="headerlink" title="6 结束语"></a>6 结束语</h1><p>此文介绍了 SQL 中常用的一些只是。若有补充，请 <em>–<strong>留言</strong>–</em> </p>
+<h1 id="6-结束语"><a href="#6-结束语" class="headerlink" title="6 结束语"></a>6 结束语</h1><p>此文介绍了 SQL 中常用的一些只是。若有补充，请 <em>–<strong>留言</strong>–</em></p>
 <p><em>（本人愚钝，请多指教！2017/2/5 11:04:59  ）</em></p>
 ]]></content>
     
     <summary type="html">
     
-      对于简单的数据库来说，无非就是 CRUD 操作。本文只对简单的 CRUD 命令进行综述。
+      &lt;h1 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1 前言&quot;&gt;&lt;/a&gt;1 前言&lt;/h1&gt;&lt;p&gt;本文闲谈 SQL 命令中一些用到的：约束，sql关键字，sql函数。&lt;/p&gt;
     
     </summary>
     
