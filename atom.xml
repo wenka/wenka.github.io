@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wenka.github.io/"/>
-  <updated>2017-03-25T07:22:40.342Z</updated>
+  <updated>2017-03-25T07:29:36.091Z</updated>
   <id>https://wenka.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://wenka.github.io/2017/03/25/workBook/"/>
     <id>https://wenka.github.io/2017/03/25/workBook/</id>
     <published>2017-03-25T07:01:08.000Z</published>
-    <updated>2017-03-25T07:22:40.342Z</updated>
+    <updated>2017-03-25T07:29:36.091Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-操作步骤"><a href="#1-操作步骤" class="headerlink" title="1 操作步骤"></a>1 操作步骤</h2><ol>
 <li>建立 excel 模板</li>
@@ -32,7 +32,7 @@
 <h2 id="2-加入依赖"><a href="#2-加入依赖" class="headerlink" title="2 加入依赖"></a>2 加入依赖</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Gradle</span></div><div class="line">compile <span class="string">'org.jeecg:easypoi-annotation:2.3.1'</span></div><div class="line">compile <span class="string">'org.jeecg:easypoi-base:2.3.1'</span></div><div class="line">compile <span class="string">'org.jeecg:easypoi-web:2.3.1'</span></div></pre></td></tr></table></figure>
 <h2 id="3-新建-excel-模板"><a href="#3-新建-excel-模板" class="headerlink" title="3 新建 excel 模板"></a>3 新建 excel 模板</h2><h3 id="3-1-模板语法"><a href="#3-1-模板语法" class="headerlink" title="3.1 模板语法"></a>3.1 模板语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- 空格分割</div><div class="line">- 三目运算 &#123;&#123;test ? obj:obj2&#125;&#125;</div><div class="line">- n: 表示 这个cell是数值类型 &#123;&#123;n:&#125;&#125; 用来处理数字问题,防止上面有小叹号</div><div class="line">- le: 代表长度&#123;&#123;le:()&#125;&#125; 在if/else 运用&#123;&#123;le:() &gt; 8 ? obj1 : obj2&#125;&#125;</div><div class="line">- fd: 格式化时间 &#123;&#123;fd:(obj;yyyy-MM-dd)&#125;&#125;使用java的时间格式化,进行格式化处理</div><div class="line">- fn: 格式化数字 &#123;&#123;fn:(obj;###.00)&#125;&#125; 处理小数点问题</div><div class="line">- 单引号表示常量值 &apos;&apos;,比如&apos;1&apos; 那么输出的就是 1</div><div class="line">- fe: 遍历数据,创建row</div><div class="line">- !fe: 遍历数据不创建row</div><div class="line">- $fe: 下移插入,把当前行,下面的行全部下移.size()行,然后插入</div><div class="line">- #fe: 行遍历 其他都是列遍历,这个是横向遍历</div><div class="line">- !if: 删除当前列 &#123;&#123;!if:(test)&#125;&#125;</div><div class="line">- &amp;NULL&amp;: 控制</div><div class="line">- ]]: 换行符解决多行遍历的问题,详情看下嘛的遍历标签</div></pre></td></tr></table></figure>
 <h3 id="3-2-模板示例"><a href="#3-2-模板示例" class="headerlink" title="3.2 模板示例"></a>3.2 模板示例</h3><p>template.xls:</p>
-<p><img src="https://wenka.github.io/pictures/2017032501.png" alt="">|</p>
+<p><img src="https://wenka.github.io/pictures/2017032501.PNG" alt="">|</p>
 <h1 id="4-java代码"><a href="#4-java代码" class="headerlink" title="4 java代码"></a>4 java代码</h1><ol>
 <li><p>注入文件路径</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//从配置文件中读取文件上传下载路径</span></div><div class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;upload.save.dir&#125;"</span>)</div><div class="line"><span class="keyword">private</span> String savePath;</div></pre></td></tr></table></figure>
@@ -994,11 +994,11 @@ destory...
       <category term="Spring4" scheme="https://wenka.github.io/categories/Spring4/"/>
     
     
-      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
-    
       <category term="IOC" scheme="https://wenka.github.io/tags/IOC/"/>
     
       <category term="DI" scheme="https://wenka.github.io/tags/DI/"/>
+    
+      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
     
   </entry>
   
@@ -1247,11 +1247,11 @@ user.show();
       <category term="Spring4" scheme="https://wenka.github.io/categories/Spring4/"/>
     
     
-      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
-    
       <category term="IOC" scheme="https://wenka.github.io/tags/IOC/"/>
     
       <category term="DI" scheme="https://wenka.github.io/tags/DI/"/>
+    
+      <category term="MVC" scheme="https://wenka.github.io/tags/MVC/"/>
     
   </entry>
   

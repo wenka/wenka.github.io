@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://wenka.github.io/2017/03/25/workBook/</loc>
-    <lastmod>2017-03-25T07:22:40.342Z</lastmod>
+    <lastmod>2017-03-25T07:29:36.091Z</lastmod>
     <data>
         <display>
         <title>使用Java生成表格实例</title>
@@ -173,11 +173,11 @@
         <title>Spring4笔记之IOC（二）</title>
         <pubTime>2017-01-02T02:14:48.000Z</pubTime>
         
-        <tag>MVC</tag>
-         
         <tag>IOC</tag>
          
         <tag>DI</tag>
+         
+        <tag>MVC</tag>
          
          
            
@@ -197,11 +197,11 @@
         <title>Spring4笔记之IOC（一）</title>
         <pubTime>2017-01-01T10:41:51.000Z</pubTime>
         
-        <tag>MVC</tag>
-         
         <tag>IOC</tag>
          
         <tag>DI</tag>
+         
+        <tag>MVC</tag>
          
          
            
