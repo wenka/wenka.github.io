@@ -1,1 +1,0 @@
-webpackJsonp([3],{gZBz:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var a={render:function(){var e=this.$createElement;return(this._self._c||e)("section",[this._v("\n  dashboard\n")])},staticRenderFns:[]};var r=t("VU/8")({name:"Dashboard"},a,!1,function(e){t("kg7m")},"data-v-bace3d0c",null);n.default=r.exports},kg7m:function(e,n){}});
